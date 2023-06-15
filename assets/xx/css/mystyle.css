@@ -1,0 +1,37 @@
+.vertical-line {
+    border-right: 1px solid #228B22;
+    height: 60px;
+    background-color: #228B22;
+    width: 11px;
+    margin-left:8px;
+  }
+.title-breadcumb {
+    margin:-35px;
+    margin-left:14px;
+    width:400px;
+    
+}
+.list-breadcumb {
+    margin:-20px;
+    margin-left:8px;
+}
+.form-kecil {
+    height : 5px;
+    font-size: 4px;
+    background-color: aquamarine;
+}
+.keren {
+    background-color: red;
+    height: 100px;
+}
+.border-form{
+    border-radius :10px;
+    
+}
+#inputTitle{
+    border-radius:8px;
+    height:40%;
+}
+#color-default{
+    background: linear-gradient(109.6deg, rgb(20, 30, 48) 11.2%, rgb(36, 59, 85) 91.1%);
+}
