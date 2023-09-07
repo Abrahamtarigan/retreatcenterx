@@ -1,50 +1,88 @@
-
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<div class="menu-berhasil-pop" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
-<?php if ($this->session->flashdata('message')) : ?>
-
-<?php endif; ?>
-
+<!--/** 
+ * @Author: flydreame 
+ * @Date: 2023-08-12 15:13:54 
+ * @Desc:  halaman untuk cart/
+ */  -->
 <aside class="col-sm-9">
 
   <div class="container">
-    <h3>List Transaksi
-    </h3>
+    <?php include 'breadcumb.php'; ?>
+    <?php include 'pencarian-order.php'; ?>
 
-    <small>Silahkan Gunakan halaman ini untuk melihat semua transasksi</small>
-    <hr />
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item">
-    <a class="nav-link text-warning active" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="true">Transaksi Berjalan</a>
-  </li>
-  <li class="nav-item">
-    <a href="<?= base_url('guess/totalTf');?>" class="nav-link">Total Transaksi</a>
-  </li>
- 
-  <!-- <li class="nav-item">
-    <a class="nav-link text-success" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Transaksi Sukses</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link text-danger" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">Transaksi Batal</a>
-  </li>
-  -->
-</ul>
+    <?php if (empty($getBookings)) { ?>
+      <div class="col">
+        <br><br><br>
+        <div class="card-body">
+          <center class="alert alert-light text-dark">
+            <br>
+            <h4 class="text-center"><br><span class="logo"><i class="fa-solid fa-cart-arrow-down fa-2xl "></i></span><br>
+              <br><b>Ups, kamu belum pernah memesan nih ! ...</b> <br><br>
+            </h4>
+          </center>
+          <br><br><br>
+        </div>
+      </div>
+  </div>
+<?php } else { ?>
 
-<div id ="respon-transaksi">
-  <?php include 'respon-tf.php';?>
-</div>
+  <div id="respon-transaksi">
+    <table class="table">
+      <thead>
+        <tr>
+          <th><small><b>check in</b><br>(booking id dan nama vila)</small></th>
+          <th><small><b>check in</b><br>(masuk)</small></th>
+          <th><small><b>check in</b><br>(keluar)</small></th>
+          <th><small><b>Status</b><br>(progress order)</small></th>
+          <th><small><b>Pembayaran</b><br>(status pembayaran)</small></th>
+          <th><small><b>...</b></small></th>
+          <!-- Tambahkan kolom lain sesuai kebutuhan -->
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($getBookings as $gb) : ?>
+          <tr>
+            <small>
+              <td><b>#<?php echo $gb->bookingId; ?></b><br>
+                <a class="text-primary" href="<?= base_url('guess/cart?view=' . $gb->bookingId . ''); ?>">
+                  <u>Lihat Tagihan</u>
+                </a>
+              </td>
+              <td><?php echo date('d F Y', strtotime($gb->bookingStDt)); ?></td>
+              <td><?php echo date('d F Y', strtotime($gb->bookingEdDt)); ?></td>
+              <td><?php echo $gb->status_name; ?></td>
+              <td><?php echo $gb->status_booking_name; ?></td>
+
+
+            </small>
+            <!-- Tambahkan kolom lain sesuai kebutuhan -->
+          </tr>
+
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+    <ul class="pagination justify-content-end">
+
+      <center><?php echo $pagination; ?></center>
+    </ul>
+
+  </div>
+  <?php
+
+  ?>
+
+<?php } ?>
+
+
 
 <script>
-  $(function () {
+  $(function() {
     $('#myTab li:first-child a').tab('show')
   })
 </script>
-    
 
 
-  </div>
+
+</div>
 
 
 </aside> <!-- col.// -->
@@ -53,7 +91,3 @@
 </div> <!-- row.// -->
 
 </div>
-
-
-
-

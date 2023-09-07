@@ -16,8 +16,8 @@ class Auth extends CI_Controller
         $this->load->library('user_agent');
         $this->load->model('Produk_model', 'Produk');
         $this->load->model('Transactions_model', 'tr');
-        require_once APPPATH.'third_party/src/Google_Client.php';
-        require_once APPPATH.'third_party/src/contrib/Google_Oauth2Service.php';
+        require_once APPPATH . 'third_party/src/Google_Client.php';
+        require_once APPPATH . 'third_party/src/contrib/Google_Oauth2Service.php';
         // $data['bookingStDt'] = $this->session->flashdata('item1');
         // $data['bookingEdDt']= $this->session->flashdata('item2');
     }
@@ -31,16 +31,18 @@ class Auth extends CI_Controller
 
         $this->form_validation->set_rules('bookingStDt', 'Check-in', 'required');
         $this->form_validation->set_rules('bookingEdDt', 'Check-out', 'required');
+        $this->form_validation->set_rules('total_guess', 'total_guess', 'required');
         // $this->form_validation->set_rules('icon', 'Icon', 'required');
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/booking-date', $data);
+            //$this->load->view('templates/booking-date', $data);
             $this->load->view('auth/home', $data);
             $this->load->view('templates/content', $data);
             $this->load->view('templates/footer', $data);
         } else {
             $data['bookingStDt'] = $this->input->post('bookingStDt');
             $data['bookingEdDt'] = $this->input->post('bookingEdDt');
+            $data['total_guess'] = $this->input->post('total_guess');
             $data['reservation'] = $this->reservation->getR($data);
             $this->session->set_userdata('item1', $data['bookingStDt']);
             $this->session->set_userdata('item2', $data['bookingEdDt']);
@@ -62,7 +64,7 @@ class Auth extends CI_Controller
             // $data['produkLain'] = $this->Produk_Model->produkLainnya(decrypt_url($id));
             $data['user'] = $this->db->get_where('user', ['userEmail' => $this->session->userdata('userEmail')])->row_array();
             $data['room'] = $this->Produk->getDetails(decrypt_url($roomId));
-            
+
             //get head picture
             $data['head_pic'] = $this->Produk->getHeadPic(decrypt_url($roomId));
             // untuk mendapatkan facility
@@ -189,7 +191,7 @@ class Auth extends CI_Controller
     {
         $clientId = '384530432813-taev4rrul6piub0u9tor3bh23inm61ql.apps.googleusercontent.com'; // Google client ID
         $clientSecret = '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'; // Google client secret
-        $redirectURL = base_url().'auth/google_regis/';		// https://curl.haxx.se/docs/caextract.html
+        $redirectURL = base_url() . 'auth/google_regis/';        // https://curl.haxx.se/docs/caextract.html
 
         // Call Google API
         $gClient = new Google_Client();
@@ -202,7 +204,7 @@ class Auth extends CI_Controller
         if (isset($_GET['code'])) {
             $gClient->authenticate($_GET['code']);
             $_SESSION['token'] = $gClient->getAccessToken();
-            header('Location: '.filter_var($redirectURL, FILTER_SANITIZE_URL));
+            header('Location: ' . filter_var($redirectURL, FILTER_SANITIZE_URL));
         }
 
         if (isset($_SESSION['token'])) {
@@ -247,7 +249,7 @@ class Auth extends CI_Controller
                     elseif ($user['role_id'] == 102) {
                         $previous_url = $this->session->userdata('previous_url');
                         redirect($previous_url);
-                    // echo $previous_url;
+                        // echo $previous_url;
                     }
 
                     // jika akun belum ada
@@ -281,7 +283,7 @@ class Auth extends CI_Controller
             'image' => $user['picture'],
             'role_id' => 102,
             'is_active' => 1,
-     ];
+        ];
         $this->user->tambahUser($data, 'user');
         redirect('auth/google_regis');
         // die;
@@ -319,37 +321,40 @@ class Auth extends CI_Controller
         $end = $this->session->userdata('item2');
         $start_clock = '02:00:00';
         $end_clock = '12:00:00';
-        $unique = uniqid().uniqid();
-       
-            $eightdigitrandom = rand(10000, 99999999);
-            $randNumber = rand(1211, 8311);
-            $randNumber4 = rand(121, 131);
-            $id_ = uniqid().
-        $quantity_ext = $this->input->post('quantity');
+        $unique = uniqid() . uniqid();
+
+        $eightdigitrandom = rand(10000, 99999999);
+        $randNumber = rand(1211, 8311);
+        $randNumber4 = rand(121, 131);
+        $id_ = uniqid() .
+            $quantity_ext = $this->input->post('quantity');
         $id_ext = $this->input->post('id');
 
-        $extender_price_id = rand(1211, 8311);
+
         $this->session->set_userdata('extender_price_id', $extender_price_id);
 
-         //kalo belum ada booking id
-         if ($this->session->userdata('bookingId') == null){
+        //kalo belum ada booking id
+        if ($this->session->userdata('bookingId') == null) {
             $start_clock = '02:00:00';
             $end_clock = '12:00:00';
-            
-            $bookingId = '88'.$randNumber4.$randNumber;
+
+            $bookingId = '88' . $randNumber4 . $randNumber;
             $this->session->set_userdata('bookingId', $bookingId);
-           
-        }else{
+        } else {
             $bookingId = $this->session->userdata('bookingId');
             //$order_idt = $this->session->userdata('order_idt');
         }
-        //kalo belum ada order id text
-        if ($this->session->userdata('order_idt') == null){
-            $order_idt = 'RC-88-'.$randNumber4.uniqid();
-            $this->session->set_userdata('order_idt', $order_idt);
-        }else{
-            $order_idt = $this->session->userdata('order_idt');
+        //kalo belum ada extender_id id text
+        if ($this->session->userdata('extender_price_id') == null) {
+            $extender_price_id = rand(1211, 8311);
+            $this->session->set_userdata('extender_price_id', $extender_price_id);
+        } else {
+            $extender_price_id = $this->session->userdata('bookingId');
         }
+
+        $order_idt = 'RC-88-' . $randNumber4 . uniqid();
+        $order_idt_session = $this->session->set_userdata('order_idt', $order_idt);
+
 
         $data = [
             'bookingId' => $this->session->userdata('bookingId'),
@@ -359,8 +364,8 @@ class Auth extends CI_Controller
             'bookingRoomId' => $this->session->userdata('roomId'),
             'bookingStDt' => $start,
             'bookingEdDt' => $end,
-            'bookingStDt_check' => $start.' 02:00:00',
-            'bookingEdDt_check' => $end.' 12:00:00',
+            'bookingStDt_check' => $start . ' 02:00:00',
+            'bookingEdDt_check' => $end . ' 12:00:00',
             'bookingTime' => date('Y-m-d H:i:s'),
             'bookingTimeStacEnd' => date('Y-m-d H:i:s', strtotime('+10 minutes', strtotime($current_date_time))),
             'bookingNights' => $this->session->userdata('numberOfDays'),
@@ -369,12 +374,12 @@ class Auth extends CI_Controller
             'userEditKeterangan' => '-',
             'status_booking' => 1,
             'is_pay' => 0,
-     ];
+        ];
         //$this->user->checkoutBooking($data, 'tb_rooms_bookings');
         $this->user->backupCheckoutBooking($data, 'tb_backup_bookings');
         $data = [
-           'bookingId' => $bookingId,
-           'total_price_hotel' => $bookingTotalPay,
+            'bookingId' => $bookingId,
+            'total_price_hotel' => $bookingTotalPay,
         ];
 
         $this->db->insert('tb_h', $data);
@@ -389,8 +394,8 @@ class Auth extends CI_Controller
         //         $price = $row->roomExtenderFacilityPrice;
         //         //$roomName =  $row->roomName;
         // }
-        
-       
+
+
         //$randNumber = rand(1211, 8311);
         $result = [];
         foreach ($quantity as $key => $val) {
@@ -398,8 +403,9 @@ class Auth extends CI_Controller
             $j = $_POST['id'][$key];
             $z = $_POST['price'][$key];
             $result[] = [
-                'booking_id' => $extender_price_id,
-                'booking_id_text' => $order_idt,
+                'ext_id' => $extender_price_id,
+                'booking_id' => $this->session->userdata('bookingId'),
+                'booking_id_text' => $this->session->userdata('bookingId'),
                 'room_extender_facility_id' => $j,
                 'quantity' => $p,
                 'price' => $p * $z,
@@ -433,45 +439,61 @@ class Auth extends CI_Controller
         // }
         // $this->db->insert('tb_t', $result);
         $total = $this->db->select_sum('price')
-                            ->from('tb_rooms_extender_facility_bookings')
-                            ->where('booking_Id', $extender_price_id);
+            ->from('tb_rooms_extender_facility_bookings')
+            ->where('ext_id', $extender_price_id);
         $fetching = $this->db->get();
         $total_f = $fetching->row()->price;
 
         // total harga extender
         //$extender_price_id = uniqid();
         $data = [
-                    'booking_id' => $extender_price_id,
-                    'total_price' => $total_f,
-                 ];
+            'booking_id' => $this->session->userdata('bookingId'),
+            'total_price' => $total_f,
+        ];
 
         $this->db->insert('tb_t', $data);
 
-        // total bayar semuanya
-        $data = [
-            'booking_id' => $extender_price_id,
-            'price_total' => $bookingTotalPay + $total_f,
-         ];
-        $this->db->insert('tb_total_pay', $data);
+        $totalPayment = $bookingTotalPay + $total_f;
 
-    
+        // Cek apakah sudah ada record dengan booking_id yang sama di tabel tb_total_pay
+        $this->db->where('booking_id', $this->session->userdata('bookingId'));
+        $query = $this->db->get('tb_total_pay');
+        $existingRecord = $query->row();
 
-     
-        
+        // Jika sudah ada record, ambil price_total lama dan tambahkan dengan totalPayment
+        if ($existingRecord) {
+            $oldTotal = $existingRecord->price_total;
+            $newTotal = $oldTotal + $totalPayment;
+            $this->db->where('booking_id', $this->session->userdata('bookingId'));
+            $this->db->update('tb_total_pay', ['price_total' => $newTotal]);
+        } else {
+            // Jika belum ada record, tambahkan record baru dengan totalPayment
+            $data = [
+                'booking_id' => $this->session->userdata('bookingId'),
+                'price_total' => $totalPayment,
+            ];
+            $this->db->insert('tb_total_pay', $data);
+        }
+
+
+
+
+
+
         $randNumber = rand(100, 4000);
         $datax = array(
-            'id'      => '1-'.$randNumber,
+            'id'      => '1-' . $randNumber,
             'qty'     => 1,
             'price'   => $bookingTotalPay + $total_f,
             'option'  => 'Hotel',
             'coupon'  =>  $extender_price_id,
-            'name'    => $roomName.'<br/>'.'<small>'.$start.' -> '.$end.'</small>',
+            'name'    => $roomName . '<br/>' . '<small>' . $start . ' -> ' . $end . '</small>',
             //'image'   => $this->input->post('gambar', true)
-           
-         );
+
+        );
         print_r($datax);
         echo $this->session->userdata('bookingId');
-      
+
         $this->cart->insert($datax);
         //echo $gambar;
         $this->session->set_flashdata('message', 'Menambah Kedalam Keranjang');

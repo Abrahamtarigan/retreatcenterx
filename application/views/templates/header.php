@@ -21,6 +21,44 @@
   <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap" rel="stylesheet">
   <style>
+    .fa-eye-slash {
+      display: none;
+    }
+
+    .fa-eye-slash2 {
+      display: none;
+    }
+
+    .logo {
+      display: inline-block;
+      transform: scale(1.5) rotate(-10deg);
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo::before,
+    .logo::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 2px;
+      z-index: -1;
+    }
+
+    .logo::before {
+      width: 50%;
+      height: 50%;
+      background: #FFD700;
+      transform: skewX(-10deg);
+    }
+
+    .logo::after {
+      width: 80%;
+      height: 70%;
+      background: #FFD700;
+      transform: skewX(10deg);
+    }
+
     .input-container input {
       border: none;
       box-sizing: border-box;
@@ -280,8 +318,7 @@
   <style>
     p {
       color: #fff;
-      font-size;
-      1.1em;
+      font-size: 1.1em;
     }
 
     .alert-heading {
@@ -365,77 +402,96 @@
   </div>
 
   <!-- End Topbar -->
-  <div id="logoAndNav" class="container-fluid py-xl-2 border-bottom-xl banner-block banner-v2 ">
-    <!-- Nav -->
-    <nav class="js-mega-menu navbar navbar-expand-xl u-header__navbar u-header__navbar--no-space">
-      <!-- Logo -->
+  <?php if ($this->session->userdata('userEmail') == null) { ?>
+    <div id=" logoAndNav" class="container-fluid py-xl-2 border-bottom-xl banner-block banner-v2 ">
+      <nav class="js-mega-menu navbar navbar-expand-xl u-header__navbar u-header__navbar--no-space">
+        <a href="<?= base_url(); ?>" class="nav-link text-dark" id="ActivityMenu" aria-haspopup="true" aria-expanded="true" aria-labelledby="ActivitySubMenu">
+          <small><b>info@retreatcenter.id | </b>081-333-222-333</small>
+        </a>
+        <div id="navBar" class="navbar-collapse u-header__navbar-collapse collapse order-2 order-xl-0 pt-4 p-xl-0 position-relative ">
 
 
-      <a href="<?= base_url('/auth'); ?>" class="navbar-brand u-header__navbar-brand-default u-header__navbar-brand-center u-header__navbar-brand-text-dark-xl" href="../home/index.html" aria-label="MyTour">
-        <img class="rounded" style="height:60px;width:60px;margin-right:-18px;" src="<?= base_url('assets/logo/logo.png'); ?>" alt="avatar">
-        <span class="u-header__navbar-brand-text __comfortaa_font text-dark" style="font-weight:bold;font-size:30px;margin-top:-10px;font-style:'poppins'">&nbsp;Retreat<span class="__navbar-brand-text text-dark">&nbsp;Centre</span>
-          <div class="d-flex flex-column flex-md-row  position-relative text-black align-items-center ">
-            <span class="tabtext font-size-12 font-weight-semi-bold ">&nbsp;&nbsp;&nbsp;Deliserdang, Sumatera Utara, Indonesia</span>
-          </div>
+          <ul class="navbar-nav u-header__navbar-nav">
 
-
-      </a>
-      <!-- End Logo -->
-
-      <!-- Responsive Toggle Button -->
-      <button type="button" class="navbar-toggler btn u-hamburger u-hamburger--primary order-2 ml-3" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navBar" data-toggle="collapse" data-target="#navBar">
-        <span id="hamburgerTrigger" class="u-hamburger__box">
-          <span class="u-hamburger__inner"></span>
-        </span>
-      </button>
-      <!-- End Responsive Toggle Button -->
-
-      <!-- Navigation -->
-      <div id="navBar" class="navbar-collapse u-header__navbar-collapse collapse order-2 order-xl-0 pt-4 p-xl-0 position-relative __areas">
-        <ul class="navbar-nav u-header__navbar-nav">
-          <!-- Home -->
-          <?php if ($this->session->userdata('userEmail') == null) { ?>
-            <li class="nav-item hs-has-sub-menu u-header__nav-item rounded-pill btn  btn-sm" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-              <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-house-check" viewBox="0 0 20 20">
-                <path d="M7.293 1.5a1 1 0 0 1 1.414 0L11 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l2.354 2.353a.5.5 0 0 1-.708.708L8 2.207l-5 5V13.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 2 13.5V8.207l-.646.647a.5.5 0 1 1-.708-.708L7.293 1.5Z" />
-                <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.707l.547.547 1.17-1.951a.5.5 0 1 1 .858.514Z" />
-              </svg>
-              <a href="<?= base_url(); ?>" class="text-dark " id="ActivityMenu" class="nav-link u-header__nav-link " href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="ActivitySubMenu">
-                Beranda</a>
-            </li>&nbsp;
-            <li class="nav-item hs-has-sub-menu u-header__nav-item btn-sm" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-layout-wtf" viewBox="0 0 20 20">
-                <path d="M5 1v8H1V1h4zM1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm13 2v5H9V2h5zM9 1a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9zM5 13v2H3v-2h2zm-2-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3zm12-1v2H9v-2h6zm-6-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H9z" />
-              </svg>
-              <a href="<?= base_url('restaurant/menu'); ?>" class="text-dark" id="ActivityMenu" class="nav-link u-header__nav-link " href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="ActivitySubMenu">Restaurant</a>
-            </li>&nbsp;
-            <li class="nav-item hs-has-sub-menu u-header__nav-item btn-sm" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 20 20">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-              </svg>
-              <a href="sdf" class="text-dark " id="ActivityMenu" class="nav-link u-header__nav-link " href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="ActivitySubMenu">Informasi</a>
-            </li>&nbsp;
-            <li class="nav-item hs-has-sub-menu u-header__nav-item  btn-sm" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-              <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-images" viewBox="0 0 20 20">
-                <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
-              </svg>
-              <a href="sdf" class="text-dark " id="ActivityMenu" class="nav-link u-header__nav-link " href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="ActivitySubMenu">Gallery</a>
-            </li>&nbsp;
-
-            <li class="nav-item hs-has-sub-menu u-header__nav-item  btn-sm" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-
-              <i class="fa-solid fa-cart-plus fa-lg"></i>
-              <a href="<?= base_url('keranjang/'); ?>" class="text-dark " id="ActivityMenu" class="nav-link u-header__nav-link " href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="ActivitySubMenu">Keranjang<?php if ($rows == 0) {
-                                                                                                                                                                                                                                              echo '';
-                                                                                                                                                                                                                                            } else {
-                                                                                                                                                                                                                                            ?>
-                <span class="badge badge-danger __areas"><?= $rows; ?></span>
-              <?php
-                                                                                                                                                                                                                                            }
-              ?>
+            <li class="nav-item">
+              <a href="<?= base_url(); ?>" class="nav-link text-dark" id="ActivityMenu" aria-haspopup="true" aria-expanded="true" aria-labelledby="ActivitySubMenu">
+                <small><b>Beranda</b></small>
               </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= base_url('restaurant/menu'); ?>" class="nav-link text-dark" id="ActivityMenu" aria-haspopup="true" aria-expanded="false" aria-labelledby="ActivitySubMenu">
+                <small><b>Restorant</b></small>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link text-dark" id="ActivityMenu" aria-haspopup="true" aria-expanded="false" aria-labelledby="ActivitySubMenu">
+                <small><b>Blog</b></small>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link text-dark" id="ActivityMenu" aria-haspopup="true" aria-expanded="false" aria-labelledby="ActivitySubMenu">
+                <small><b>Gallery</b></small>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+
+
+
+
+    <div id=" logoAndNav" class="container-fluid py-xl-2 border-bottom-xl banner-block banner-v2 ">
+      <!-- Nav -->
+
+      <nav class="js-mega-menu navbar navbar-expand-xl u-header__navbar u-header__navbar--no-space">
+        <!-- Logo -->
+
+
+        <a href="<?= base_url('/dash'); ?>" class="navbar-brand u-header__navbar-brand-default u-header__navbar-brand-center u-header__navbar-brand-text-dark-xl" href="../home/index.html" aria-label="MyTour">
+          <img class="rounded" style="height:60px;width:60px;margin-right:-18px;" src="<?= base_url('assets/logo/logo.png'); ?>" alt="avatar">
+          <span class="u-header__navbar-brand-text text-dark" style="font-weight:bold;font-size:22px;margin-top:-10px;font-style:'arial'">&nbsp;Retreat<span class="__navbar-brand-text text-dark">&nbsp;Centre</span>
+            <div class="d-flex flex-column flex-md-row  position-relative text-black align-items-center ">
+              <span class="tabtext font-size-11 font-weight-semi-bold ">&nbsp;&nbsp;Deliserdang, Sumatera Utara, Indonesia</span>
+            </div>
+
+
+        </a>
+        <!-- End Logo -->
+
+        <!-- Responsive Toggle Button -->
+        <button type="button" class="navbar-toggler btn u-hamburger u-hamburger--primary order-2 ml-3" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navBar" data-toggle="collapse" data-target="#navBar">
+          <span id="hamburgerTrigger" class="u-hamburger__box">
+            <span class="u-hamburger__inner"></span>
+          </span>
+        </button>
+        <!-- End Responsive Toggle Button -->
+
+        <!-- Navigation -->
+        <div id="navBar" class="navbar-collapse u-header__navbar-collapse collapse order-2 order-xl-0 pt-4 p-xl-0 position-relative ">
+          <ul class="navbar-nav u-header__navbar-nav">
+            <!-- Home -->
+
+
+
+
+
+
+            <?php if ($rows == 0) {
+              echo '';
+            } else {
+            ?>
+              <span class="badge badge-danger"><?= $rows; ?></span>
+            <?php
+            }
+            ?>
+            <a href="<?= base_url('keranjang/'); ?>" class="text-dark " id="ActivityMenu" class="nav-link u-header__nav-link " href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="ActivitySubMenu" style="margin-right:20px;"><b><i class="fa-solid fa-cart-arrow-down fa-xl">&nbsp;</i>
+
+            </a>
+
+
+
             </li>
 
 
@@ -450,84 +506,90 @@
 
 
 
-          </li>&nbsp;
+
+
           <?php if ($this->session->userdata('userEmail') == null) { ?>
-            <li class="nav-item hs-has-sub-menu u-header__nav-item" style="margin-top:-8px;" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-              <a href="<?= base_url('auth/sign_in'); ?>" style="font-weight:bold;" class="btn btn-warning btn btn-outline-warning __areas __button_khas text-white btn-sm rounded"><i class="fa-regular fa-user"></i>&nbsp;Login/ Daftar</a>
+
+            <li class="nav-item hs-has-sub-menu u-header__nav-item" style="margin-top:-8px;border-radius:10px;" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
+
+              <a href="<?= base_url('login'); ?>" style="font-weight:bold;" class="btn btn-warning btn btn-outline-dark   text-dark btn-sm rounded"><small><b>Masuk</b></small></a>
+
+
+              <a href="<?= base_url('register'); ?>" style="font-weight:bold;background: linear-gradient(109.6deg, rgb(20, 30, 48) 11.2%, rgb(36, 59, 85) 91.1%);" class="btn btn-warning btn btn-outline-warning  text-white btn-sm rounded"><small><b>Daftar</b></small></a>
+              <br>
+
+
+
+
             </li>
+
           <?php } else { ?>
-            <li class="nav-item hs-has-sub-menu u-header__nav-item  btn-sm" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-              <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-house-check" viewBox="0 0 20 20">
-                <path d="M7.293 1.5a1 1 0 0 1 1.414 0L11 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l2.354 2.353a.5.5 0 0 1-.708.708L8 2.207l-5 5V13.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 2 13.5V8.207l-.646.647a.5.5 0 1 1-.708-.708L7.293 1.5Z" />
-                <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.707l.547.547 1.17-1.951a.5.5 0 1 1 .858.514Z" />
-              </svg>
-              <a href="<?= base_url(); ?>" class="text-dark " id="ActivityMenu" class="nav-link u-header__nav-link " href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="ActivitySubMenu">
-                Beranda</a>
-            </li>&nbsp;
-            <li class="nav-item hs-has-sub-menu u-header__nav-item  btn-sm" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-layout-wtf" viewBox="0 0 20 20">
-                <path d="M5 1v8H1V1h4zM1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm13 2v5H9V2h5zM9 1a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9zM5 13v2H3v-2h2zm-2-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3zm12-1v2H9v-2h6zm-6-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H9z" />
-              </svg>
-              <a href="<?= base_url('restaurant/menu'); ?>" class="text-dark " id="ActivityMenu" class="nav-link u-header__nav-link " href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="ActivitySubMenu">Restaurants</a>
-            </li>&nbsp;
-            <li class="nav-item hs-has-sub-menu u-header__nav-item  btn-sm" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 20 20">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-              </svg>
-              <a href="sdf" class="text-dark " id="ActivityMenu" class="nav-link u-header__nav-link " href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="ActivitySubMenu">Informasi</a>
-            </li>&nbsp;
-            <li class="nav-item hs-has-sub-menu u-header__nav-item  btn-sm" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-              <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-images" viewBox="0 0 20 20">
-                <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
-              </svg>
-              <a href="sdf" class="text-dark " id="ActivityMenu" class="nav-link u-header__nav-link " href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="ActivitySubMenu">Gallery</a>
+
+            <div id=" logoAndNav" class="container-fluid py-xl-2 border-bottom-xl banner-block banner-v2 ">
+              <nav class="js-mega-menu navbar navbar-expand-xl u-header__navbar u-header__navbar--no-space">
+                <a href="<?= base_url(); ?>" class="nav-link text-dark" id="ActivityMenu" aria-haspopup="true" aria-expanded="true" aria-labelledby="ActivitySubMenu">
+                  <small><b>info@retreatcenter.id | </b>081-333-222-333</small>
+                </a>
+                <div id="navBar" class="navbar-collapse u-header__navbar-collapse collapse order-2 order-xl-0 pt-4 p-xl-0 position-relative ">
 
 
-            </li>&nbsp;
-            <li class="nav-item hs-has-sub-menu u-header__nav-item  btn-sm" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-              <i class="fa-solid fa-cart-plus fa-lg"></i>
-              <a href="<?= base_url('keranjang/'); ?>" class="text-dark " id="ActivityMenu" class="nav-link u-header__nav-link " href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="ActivitySubMenu">Keranjang
-                <?php if ($rows == 0) {
-                  echo '';
-                } else {
-                ?>
-                  <span class="badge badge-danger __areas"><?= $rows; ?></span>
-                <?php
-                }
-                ?></a>
+                  <ul class="navbar-nav u-header__navbar-nav">
+
+                    <li class="nav-item">
+                      <a href="<?= base_url(); ?>" class="nav-link text-dark" id="ActivityMenu" aria-haspopup="true" aria-expanded="true" aria-labelledby="ActivitySubMenu">
+                        <small><b>Beranda</b></small>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="<?= base_url('restaurant/menu'); ?>" class="nav-link text-dark" id="ActivityMenu" aria-haspopup="true" aria-expanded="false" aria-labelledby="ActivitySubMenu">
+                        <small><b>Restorant</b></small>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="nav-link text-dark" id="ActivityMenu" aria-haspopup="true" aria-expanded="false" aria-labelledby="ActivitySubMenu">
+                        <small><b>Blog</b></small>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="nav-link text-dark" id="ActivityMenu" aria-haspopup="true" aria-expanded="false" aria-labelledby="ActivitySubMenu">
+                        <small><b>Gallery</b></small>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+
+            <div id=" logoAndNav" class="container-fluid py-xl-2 border-bottom-xl banner-block banner-v2 ">
+              <!-- Nav -->
+
+              <nav class="js-mega-menu navbar navbar-expand-xl u-header__navbar u-header__navbar--no-space">
+                <!-- Logo -->
 
 
-            </li>&nbsp;
-            <li class="nav-item hs-has-sub-menu u-header__nav-item " data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-              <?php
-              // jika tidak login menggunakan google 
-              if (!$user['userGoogleId'] == null) { ?>
-            <li class="nav-item dropdown __areas __button_khas text-white rounded" style="margin-top:-4px;">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img class="rounded-circle " style="height:24px;width:24px;" src="<?= $user['image']; ?>" alt="avatar">&nbsp;<?= $user['userNama']; ?></a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="<?= base_url('guess/ '); ?>">Dashboard</a>
-                <a class="dropdown-item" href="#">Daftar Riwayat Pesanan</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="<?= base_url('auth/logout'); ?>">Keluar</a>
-              </div>
-            </li>
-          <?php } else { ?>
-            <li class="nav-item dropdown __areas __button_khas text-white rounded" style="margin-top:-8px;">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img class="rounded-circle " style="height:28px;width:28px;" src="https://ui-avatars.com/api/?name=<?= $user['userNama']; ?>" alt="avatar">&nbsp;<?= $user['userNama']; ?>&nbsp;</a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="<?= base_url('auth/logout'); ?>">Keluar</a>
-              </div>
-            </li>
-          <?php } ?>
-        <?php } ?>
-        <!-- End Activity -->
+                <a href="<?= base_url('/dash'); ?>" class="navbar-brand u-header__navbar-brand-default u-header__navbar-brand-center u-header__navbar-brand-text-dark-xl" href="../home/index.html" aria-label="MyTour">
+                  <img class="rounded" style="height:60px;width:60px;margin-right:-18px;" src="<?= base_url('assets/logo/logo.png'); ?>" alt="avatar">
+                  <span class="u-header__navbar-brand-text text-dark" style="font-weight:bold;font-size:22px;margin-top:-10px;font-style:'arial'">&nbsp;Retreat<span class="__navbar-brand-text text-dark">&nbsp;Centre</span>
+                    <div class="d-flex flex-column flex-md-row  position-relative text-black align-items-center ">
+                      <span class="tabtext font-size-11 font-weight-semi-bold ">&nbsp;&nbsp;Deliserdang, Sumatera Utara, Indonesia</span>
+                    </div>
+
+
+                </a>
+                <!-- End Logo -->
+
+                <!-- Responsive Toggle Button -->
+                <button type="button" class="navbar-toggler btn u-hamburger u-hamburger--primary order-2 ml-3" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navBar" data-toggle="collapse" data-target="#navBar">
+                  <span id="hamburgerTrigger" class="u-hamburger__box">
+                    <span class="u-hamburger__inner"></span>
+                  </span>
+                </button>
+                <!-- End Responsive Toggle Button -->
+
+                <!-- Navigation -->
+                <div id="navBar" class="navbar-collapse u-header__navbar-collapse collapse order-2 order-xl-0 pt-4 p-xl-0 position-relative ">
+                  <ul class="navbar-nav u-header__navbar-nav">
+                    <!-- Home -->
 
 
 
@@ -535,36 +597,108 @@
 
 
 
+                    <?php if ($rows == 0) {
+                      echo '';
+                    } else {
+                    ?>
+                      <span class="badge badge-danger"><?= $rows; ?></span>
+                    <?php
+                    }
+                    ?>
+                    <a href="<?= base_url('keranjang/'); ?>" class="text-dark " id="ActivityMenu" class="nav-link u-header__nav-link " href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="ActivitySubMenu" style="margin-right:20px;"><b><i class="fa-solid fa-cart-arrow-down fa-xl">&nbsp;</i>
+                    </a>
 
-        </ul>
-      </div>
-      <!-- End Navigation -->
+
+
+                    </li>
+
+
+                    <li class="nav-item hs-has-sub-menu u-header__nav-item " data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
+                      <?php
+                      // jika tidak login menggunakan google 
+                      if (!$user['userGoogleId'] == null) { ?>
+                    <li class="nav-item dropdown alert btn btn-primary btn-sm rounded-4 " style="margin-top:-8px;border-radius:12px; height:40px;margin-top:20px;background:linear-gradient(109.6deg, rgb(20, 30, 48) 11.2%, rgb(36, 59, 85) 91.1%)">
+                      <a href="<?= base_url('Guess/'); ?>" class="nav-link" id="navbarDropdown" role="button" aria-expanded="false">
+                        <p style="color:white;margin-top:-12px;"> <img class="rounded-circle" style="height:28px;width:28px;" src="<?= $user['image']; ?>" alt="avatar">&nbsp;<small><b><?= $user['userNama']; ?></b></small>&nbsp;</p>
+                      </a>
+
+
+                </div>
+                </li>
+
+              <?php } else { ?>
+                <li class="nav-item dropdown alert btn btn-primary btn-sm rounded-4 " style="margin-top:-8px;border-radius:12px; height:40px;margin-top:20px;background:linear-gradient(109.6deg, rgb(20, 30, 48) 11.2%, rgb(36, 59, 85) 91.1%)">
+                  <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <p style="color:white;margin-top:-12px;"> <img class="rounded-circle" style="height:28px;width:28px;" src="https://ui-avatars.com/api/?name=<?= $user['userNama']; ?>" alt="avatar">&nbsp;<small><b><?= $user['userNama']; ?></b></small>&nbsp;</p>
+                  </a>
+
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="<?= base_url('guess/'); ?>">Dashboard</a>
+                    <a class="dropdown-item" href="#">Daftar Riwayat Pesanan</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="<?= base_url('logout'); ?>">Keluar</a>
+                  </div>
+                </li>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="<?= base_url('logout'); ?>">Keluar</a>
+                </div>
+                </li>
+              <?php } ?>
+            <?php } ?>
+            <!-- End Activity -->
 
 
 
-      <!-- Button -->
-      <!--<div class="pl-4 ml-1 u-header__last-item-btn u-header__last-item-btn-xl">
+
+
+
+
+
+          </ul>
+        </div>
+
+        <!-- End Navigation -->
+
+
+
+        <!-- Button -->
+        <!--<div class="pl-4 ml-1 u-header__last-item-btn u-header__last-item-btn-xl">
                         <a class="btn btn-wide rounded-xs btn-primary transition-3d-hover" href="../others/become-expert.html">Registrasi</a>
                     </div>-->
-      <!-- End Button -->
-    </nav>
+        <!-- End Button -->
+
+      </nav>
+      <?php if ($this->session->userdata('userEmail') !== null) { ?>
+        <div class="d-flex flex-column flex-md-row  position-relative text-black align-items-center " style="float:right; margin:-10px;padding-bottom:10px;margin-right:5px;">
+          <span class="tabtext font-size-11 font-weight-semi-bold">&nbsp;&nbsp;<?= $user['userEmail']; ?></span>
+        </div>
+      <?php } ?>
+
+    </div>
+
+
+
     <!-- End Nav -->
-  </div>
-  </div>
-
-  </header>
-  <!-- ========== END HEADER ========== -->
 
 
-  <body>
 
+    </header>
 
     <!-- ========== END HEADER ========== -->
 
-    <!-- ========== MAIN CONTENT ========== -->
+
+    <body>
+
+
+      <!-- ========== END HEADER ========== -->
+
+      <!-- ========== MAIN CONTENT ========== -->
 
 
 
 
 
-    <!-- ========== END HEADER ========== -->
+      <!-- ========== END HEADER ========== -->

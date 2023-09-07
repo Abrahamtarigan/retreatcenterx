@@ -3,7 +3,7 @@
 
 <?php endif; ?>
 
-<aside class="col-sm-9">
+<aside class="col-lg-12">
   <div class="container">
     <h3>List Role
       <button class="btn btn-primary" style="float:right;" data-toggle="modal" data-target="#tambahMenuModal">Tambah Role Baru</button>

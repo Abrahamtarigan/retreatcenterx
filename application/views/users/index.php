@@ -3,11 +3,11 @@
 
 <?php endif; ?>
 
-<aside class="col-sm-9">
+<aside class="col-sm-12">
 
   <div class="container">
     <h3>List Users
-     
+
     </h3>
 
     <small>Silahkan Gunakan halaman ini untuk Cek Transaksi User, Edit dan Hapus</small>
@@ -25,28 +25,28 @@
         <?php $i = 1; ?>
         <?php foreach ($users as $u) { ?>
           <tr>
-            <th><a style="font-weight:bold"><?= $u['userNama'];?></a><br />
-                
-                <small>Email : <a style="font-weight:bold"> <?= $u['userEmail']; ?></small></a>
-                <?php if($u['userGoogleId']){
-                   echo '<br/> <span class="badge badge-danger">Google Sync</span>';
-                }else{
-                    echo '<br/> <span class="badge badge-primary">Manual Register</span>';
-                }
-                ?>
+            <th><a style="font-weight:bold"><?= $u['userNama']; ?></a><br />
+
+              <small>Email : <a style="font-weight:bold"> <?= $u['userEmail']; ?></small></a>
+              <?php if ($u['userGoogleId']) {
+                echo '<br/> <span class="badge badge-danger">Google Sync</span>';
+              } else {
+                echo '<br/> <span class="badge badge-primary">Manual Register</span>';
+              }
+              ?>
             </th>
 
             <td>
 
-           
-           <a href="<?= base_url('users/editUser/'.encrypt_url($u['userId']).'');?>" class="btn btn-outline-secondary badge badge-primary"></i>&nbsp;Edit</a>
+
+              <a href="<?= base_url('users/editUser/' . encrypt_url($u['userId']) . ''); ?>" class="btn btn-outline-secondary badge badge-primary"></i>&nbsp;Edit</a>
               <a href="<?= base_url(); ?>users/hapusUser/<?= $u['userId']; ?>" class="btn btn-outline-secondary badge badge-primary update-record tombol-hapus-menu"></i>&nbsp;Delete</a>
-            <br/><a href="<?= base_url(); ?>menu/editMenu/<?= $u['userId']; ?>" class="btn btn-outline-secondary badge badge-secondary"></i>&nbsp;Check Transactions</a>  
-            </small>
+              <br /><a href="<?= base_url(); ?>menu/editMenu/<?= $u['userId']; ?>" class="btn btn-outline-secondary badge badge-secondary"></i>&nbsp;Check Transactions</a>
+              </small>
             </td>
           </tr>
           <?php $i++; ?>
-        <?php }?>
+        <?php } ?>
       </tbody>
 
     </table>

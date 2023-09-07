@@ -11,65 +11,100 @@
 
 <?php endif; ?>
 
-<aside class="col-lg-9">
-  <div class="container">
-  
-   
-    <div class="row">
-   
-      <div class="col-sm-12" style="width: 100%;">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Selamat Datang di Dashboard kamu</h5>
-            <hr />
-           
-            <div class="row">
-  <div class="col-sm-12">
-    <div class="card">
-      <div class="card-body">
-        
-        <h5 class="card-title">
-        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
-  <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
-  <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
-</svg>  
-          Profil kamu belum lengkap</h5>
-        <p class="card-text">Silahkan Lengkapi Profil kamu untuk mendapatkan promo - promo dari kami</p>
-        <a href="#" class="btn btn-warning">
-            
-        Lengkapi Profil</a>
-      </div>
-    </div>
-    <br/>
-  </div>
-  <div class="col-sm-12">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">
-        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-cart-check" viewBox="0 0 16 16">
-  <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
-  <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-</svg>&nbsp;Lanjutkan Proses Pembayaran kamu</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-warning">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-</div>
-          </div>
+
+<div class="col-lg-9">
+  <article class="card-group-item">
+    <div class="col-lg-12">
+
+      <div class="media">
+
+        <div class="media-body">
+          <h5 class="mt-0 text-left"><b>Mengapa harus Staycation di Retreat Center</b></h5>
+          <p class="text-left"><small>Dengan pengalaman maksimal kami dalam melayani tamu dengan harga yang rendah, kami menawarkan beberapa layanan</small></p>
+
+
         </div>
       </div>
+      <!-- <img style="width:100%; border-radius:8px;" src="<?= base_url('upload/slide/slide1.png'); ?>" alt="Gambar Hotel XYZ"> -->
     </div>
-  </div>
-  <?php
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <div class="container">
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ul>
 
-  $menu = $this->uri->segment(2);
-  echo $menu;
-  $queryMenu = $this->db->get_where('user_menu', ['menu' => $menu])->row_array();
-  $menu_id = $queryMenu['id'];
+        <!-- Slides -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="<?= base_url('upload/slide/slide1.png'); ?>" style="width:100%; border-radius:8px;" alt=" Image 1">
+          </div>
 
-  echo $menu_id;
-  ?>
+        </div>
+
+        <!-- Controls -->
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+  </article>
+
+</div>
+
+<br>
+
+</div>
+</div>
+</article>
+</div>
+</div>
+</div>
+<script>
+  $(function() {
+    $("#datepicker").datepicker({
+      dateFormat: "dd/mm/yy",
+      minDate: 0,
+      showButtonPanel: true,
+      beforeShow: function(input) {
+        $(input).attr("autocomplete", "off");
+      }
+    });
+  });
+</script>
+<script>
+  // Mendapatkan elemen tombol dan input field jumlah tamu
+  var decreaseBtn = document.getElementById('decreaseBtn');
+  var increaseBtn = document.getElementById('increaseBtn');
+  var guestsInput = document.getElementById('guestsInput');
+
+  // Menambahkan event listener untuk tombol tambah
+  increaseBtn.addEventListener('click', function() {
+    guestsInput.value = parseInt(guestsInput.value) + 1;
+  });
+
+  // Menambahkan event listener untuk tombol kurang
+  decreaseBtn.addEventListener('click', function() {
+    if (parseInt(guestsInput.value) > 1) {
+      guestsInput.value = parseInt(guestsInput.value) - 1;
+    }
+  });
+</script>
+<?php
+
+$menu = $this->uri->segment(2);
+echo $menu;
+$queryMenu = $this->db->get_where('user_menu', ['menu' => $menu])->row_array();
+$menu_id = $queryMenu['id'];
+
+echo $menu_id;
+?>
 </aside> <!-- col.// -->
 
 </div> <!-- row.// -->

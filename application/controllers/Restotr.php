@@ -169,20 +169,76 @@ class Restotr extends CI_Controller
               $data['title'] = 'Validasi Transaksi';
               $where = $id;
               // Ambil data yang ingin Anda tampilkan dalam PDF
-              $data = $this->resto->view_validasi_transaksi($where);
+              $data['transaksi'] = $this->resto->view_validasi_transaksi($where);
 
 
               // Buat tampilan HTML untuk data tersebut
               $html = $this->load->view('admin-resto/resto-tr/pdf_template', $data, true);
+
+
+
               // Muat HTML ke Dompdf
+
               $dompdf = new Dompdf\Dompdf();
               $dompdf->loadHtml($html);
+
+              // Ubah ukuran halaman PDF ke 'A7'
+              $dompdf->set_paper('A7');
 
               // Render PDF
               $dompdf->render();
 
               // Simpan atau tampilkan PDF
-              $filename = 'data.pdf';
+              $filename = $id;
               $dompdf->stream($filename, array('Attachment' => 0));
+       }
+       public function view_pdf_()
+       {
+              $this->_access();
+              $data['user'] = $this->db->get_where('user', ['userEmail' => $this->session->userdata('userEmail')])->row_array();
+              $id = $this->uri->segment(3);
+              $data['title'] = 'Validasi Transaksi';
+              $where = $id;
+              // Ambil data yang ingin Anda tampilkan dalam PDF
+              $data['transaksi'] = $this->resto->view_validasi_transaksi($where);
+
+
+              // Buat tampilan HTML untuk data tersebut
+              $this->load->view('templates-admin-resto/header', $data);
+              $this->load->view('admin-resto/resto-tr/pdf_template', $data, true);
+
+
+
+              // // Muat HTML ke Dompdf
+
+              // $dompdf = new Dompdf\Dompdf();
+              // $dompdf->loadHtml($html);
+
+              // // Ubah ukuran halaman PDF ke 'A7'
+              // $dompdf->set_paper('A7');
+
+              // // Render PDF
+              // $dompdf->render();
+
+              // // Simpan atau tampilkan PDF
+              // $filename = $id;
+              // $dompdf->stream($filename, array('Attachment' => 0));
+       }
+       public function cetak_bill()
+       {
+
+              $this->_access();
+              $data['user'] = $this->db->get_where('user', ['userEmail' => $this->session->userdata('userEmail')])->row_array();
+              $id = $this->uri->segment(3);
+              $data['title'] = 'Validasi Transaksi';
+              $where = $id;
+              $data['menu_edit_view'] = $this->resto->view_validasi_transaksi($where);
+              $data['sum_total'] = $this->resto->get_total($where);
+              // $data['content'] = file_get_contents('../views/admin-resto/__Produk/nav-master-resto.php');
+              //$this->load->view('templates-admin-resto/header', $data);
+              $this->load->view('admin-resto/recept/order-bill', $data);
+              //$this->load->view('admin-resto/recept/label', $data);
+              //$this->load->view('templates-admin-resto/footer', $data);
+              //$this->load->view('admin-resto/__Produk/resto-admin-js', $data);
        }
 }

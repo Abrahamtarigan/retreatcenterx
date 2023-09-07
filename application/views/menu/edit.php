@@ -1,4 +1,4 @@
-<aside class="col-sm-8">
+<aside class="col-lg-12">
     <div class="container">
         <h3><?= $sub_title; ?></h3>
         <small>Form ini digunakan untuk merubah menu yang ada tolong diperhatikan controllernya</small>

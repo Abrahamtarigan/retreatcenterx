@@ -36,71 +36,51 @@
         height: 100%;
     }
 </style>
-<div class="d-flex flex-column h-100">
-
-    <!-- FOR DEMO PURPOSE -->
-    <section class="hero text-white py-5 flex-grow-1">
-
-        <div class="container py-12">
-
-            <div class="row">
-                <div class="col-lg-12">
-
-                    <!-- <div class="jumbotron">
-                        <h1 class="display-4 text-dark">Selamat datang di situs kami!</h1>
-                        <p class="lead">Ini adalah situs web kami yang menampilkan berbagai informasi dan layanan yang berguna untuk Anda.</p>
-                        <hr class="my-4">
-                        <p>Terima kasih telah mengunjungi situs kami. Jika Anda memiliki pertanyaan atau masukan, jangan ragu untuk menghubungi kami.</p>
-                        <a class="btn btn-primary btn-lg" href="#" role="button">Pelajari lebih lanjut</a>
-                    </div> -->
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- FOOTER -->
-    <footer class="w-100 py-4 flex-shrink-0">
-        <div class="container py-4">
-            <div class="row gy-4 gx-5">
-                <div class="col-lg-4 col-md-6">
-                    <h5 class="h1 text-white  __comfortaa_font">Retreat Center</h5>
-                    <p class="small text-muted">Deliserdang, Sumatra Utara, Indonesia</p>
-                    <p class="small text-muted mb-0">&copy; Copyrights. All rights reserved <br><a class="text-primary" href="#">Developed by Abraham Tarigan</a></p>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <h5 class="text-white mb-3 __area">Quick links</h5>
-                    <ul class="list-unstyled text-muted __area">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Get started</a></li>
-                        <li><a href="#">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <h5 class="text-white mb-3 __area">Quick links</h5>
-                    <ul class="list-unstyled text-muted __area">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Get started</a></li>
-                        <li><a href="#">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <h5 class="text-white mb-3 __area">Newsletter</h5>
-                    <p class="small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-                    <form action="#">
-                        <div class="input-group mb-3">
-                            <input class="form-control" type="text" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-                            <button class="btn btn-primary" id="button-addon2" type="button"><i class="fas fa-paper-plane"></i></button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </footer>
 </div>
+
+<br>
+<!-- FOOTER -->
+<footer class="w-100 py-4 flex-shrink-0">
+    <div class="container py-4">
+        <div class="row gy-4 gx-5">
+            <div class="col-lg-4 col-md-6">
+                <h5 class="text-white ">Retreat Center</h5>
+                <p class="small text-muted">Deliserdang, Sumatra Utara, Indonesia</p>
+                <p class="small text-muted mb-0">&copy; Copyrights. All rights reserved <br><a class="text-primary" href="#">Developed by Abraham Tarigan</a></p>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <h6 class="text-white">Tentang kita</h6>
+                <ul class="list-unstyled text-muted">
+
+                    <li><a href="#" class="small text-muted">Sejarah</a></li>
+                    <li><a href="#" class="small text-muted">Pimpinan</a></li>
+                    <li><a href="#" class="small text-muted">Organigram</a></li>
+                    <!-- <li><a href="#" class="small text-muted">FAQ</a></li> -->
+
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <h6 class="text-white">Fasilitas</h6>
+                <ul class="list-unstyled text-muted">
+                    <li><a href="#" class="small text-muted" class="small text-muted">PPOS</a></li>
+                    <li><a href="#" class="small text-muted">Panti asuhan</a></li>
+                    <li><a href="#" class="small text-muted">Site map</a></li>
+                    <!-- <li><a href="#" class="small text-muted">FAQ</a></li> -->
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h5 class="text-white">Langganan</h5>
+                <p class="small text-muted">info promo menarik akan diterima diemail kamu</p>
+                <form action="#">
+                    <div class="input-group mb-3">
+                        <input class="form-control" type="text" placeholder="email kamu" aria-label="email kamu" aria-describedby="button-addon2">
+                        <button class="btn btn-warning" id="button-addon2" type="button"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</footer>
 <!-- ========== End FOOTER ========== -->
 
 <!-- Page Preloader -->
@@ -235,8 +215,14 @@
     });
 </script>
 <script>
-    $('#datepicker').datepicker({
-        uiLibrary: 'bootstrap4'
+    $(document).ready(function() {
+        $('form').submit(function() {
+            var submitBtn = $(this).find('button[type="submit"]');
+            submitBtn.attr('disabled', 'disabled').html('<i class="fa fa-spinner fa-spin"></i> Loading...');
+            setTimeout(function() {
+                // submitBtn.removeAttr('disabled').html('Search...');
+            }, 5000);
+        });
     });
 </script>
 

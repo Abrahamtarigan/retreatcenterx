@@ -1,4 +1,4 @@
-<aside class="col-sm-8">
+<aside class="col-sm-12">
     <div class="container">
         <h3><?= $sub_title; ?></h3>
         <small>Form ini digunakan untuk merubah User beserta passwordnya</small>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">is_active</label>
-                    <input type="text"  name="is_active" class="form-control" id="exampleInputPassword1" value="<?php echo $ue->is_active ?>">
+                    <input type="text" name="is_active" class="form-control" id="exampleInputPassword1" value="<?php echo $ue->is_active ?>">
                 </div>
                 <hr />
                 <button type="submit" class="btn btn-primary">Perbaharui User</button>

@@ -5,7 +5,7 @@
 
 
 
-              <div class="col-lg-8 mx-auto">
+           <div class="col-lg-8 mx-auto">
 
 
 
@@ -103,7 +103,7 @@
                                                                                     <p>Transaksi dengan no order id <b><?= $h->bookingId; ?></b> telah berhasil dilakukan, Terima kasih</p>
 
 
-                                                                                    <a href="<?= base_url('Restotr/view_pdf/' . $h->bookingId); ?>" class="btn btn-white mx-1 btn-sm" data-abc="true">
+                                                                                    <a href="<?= base_url('Restotr/cetak_bill/' . $h->bookingId); ?>" class="btn btn-white mx-1 btn-sm" data-abc="true">
                                                                                            <i class="fa-solid fa-print"></i>
                                                                                            Cetak struk/ bukti bayar
 

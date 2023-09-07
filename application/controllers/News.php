@@ -14,15 +14,15 @@ class News extends CI_Controller
     {
         $data['judul'] = 'Daftar Berita';
         $data['news'] = $this->News_model->getAllNews();
-        if( $this->input->post('keyword') ) {
+        if ($this->input->post('keyword')) {
             $data['news'] = $this->News_model->cariDataNews();
         }
         $this->load->view('templates/header', $data);
         $this->load->view('news/login', $data);
         $this->load->view('templates/footer');
     }
-    
-   
+
+
 
     public function tambah()
     {
@@ -81,5 +81,4 @@ class News extends CI_Controller
             redirect('mahasiswa');
         }
     }
-
 }

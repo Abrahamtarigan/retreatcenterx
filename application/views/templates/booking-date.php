@@ -1,77 +1,101 @@
+<div class="container-fluid">
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-lg-3">
 
-<div class="container">
-<main id="content" role="main">
-          <br>
-          <div class="rounded" style="background: linear-gradient(109.6deg, rgb(20, 30, 48) 11.2%, rgb(36, 59, 85) 91.1%);">
-              
-                
-                  <div class="border-1">
-                    
-                      <div class="card-body">
-                          <ul class="nav tab-nav tab-nav-1-inner flex-nowrap pb-2 mb-md-1 px-lg-3 px-2" role="tablist">
-                          <span  class="tabtext font-size-35 font-weight-semi-bold text-white __area">Lihat Ketersedian Retreat Centre Disini</span>
-                              
-                          </ul>
-                          <div class="tab-content hero-tab-pane" style="color:whitesmoke;">
-                              <div class="tab-pane fade active show" id="pills-one-example2" role="tabpanel" aria-labelledby="pills-one-example2-tab">
-                                  <form  action="" method="POST" enctype='multipart/form-data'>
-                                    <div class="row nav-select nav-select-1 d-block d-lg-flex mb-lg-2 px-lg-3 px-2 align-items-end">
-                                      
 
-                                      <div class="col-sm-12 col-lg-6 col-xl-3 mb-4 mb-xl-0 ">
-                                          <!-- Input -->
-                                          <p class="d-block  text-left  mb-0" style="color:whitesmoke;font-weight:bold;">Check-in</p>
-                                          <div class="border-bottom-1">
-                                              <div id="datepickerWrapperFromOne" class="u-datepicker input-group">
-                                                  <div class="input-group-prepend">
-                                                      <span class="d-flex align-items-center mr-2">
-                                                        <i class="flaticon-calendar text-warning font-weight-semi-bold"></i>
-                                                      </span>
-                                                  </div>
-                                                 
-                                                   <input name="bookingStDt" style="color:whitesmoke;" class=" font-size-17  text-warning shadow-none font-weight-bold form-control hero-form bg-transparent  border-0" type="date" id="datepicker" value="<?= $this->input->post('bookingStDt');?>" min="<?php echo date('Y-m-d');?>">
-                                              </div>
-                                             
-                                               <!-- End Datepicker -->
-                                          </div>
-                                          <!-- End Input -->
-                                      </div>
-                                      <?php 
-                                      $tomorrow = date("Y-m-d", strtotime("+1 day"));
-                                     
-                                      ?>
-                                      <div class="col-sm-12 col-lg-6 col-xl-3 mb-4 mb-xl-0 ">
-                                          <!-- Input -->
-                                          <p class="d-block  text-left  mb-0" style="color:whitesmoke;font-weight:bold;">Check-out</p>
-                                          <div class="border-bottom-1">
-                                              <div id="datepickerWrapperFromOne" class="u-datepicker input-group">
-                                                  <div class="input-group-prepend">
-                                                      <span class="d-flex align-items-center mr-2">
-                                                        <i class="flaticon-calendar text-warning font-weight-semi-bold"></i>
-                                                      </span>
-                                                  </div>
-                                                   <input name="bookingEdDt" style="color:whitesmoke;" class="datepicker font-size-17  text-warning shadow-none font-weight-bold form-control  bg-transparent  border-0" type="date" id="datepicker" value="<?= $this->input->post('bookingEdDt');?>" min="<?php echo $tomorrow;?>">
-                                              </div>
-                                               <!-- End Datepicker -->
-                                          </div>
-                                          <!-- End Input -->
-                                          
-                                      </div>
-                                      
-                                      
-            
-                                      <div class="col-sm-12 col-lg col-xl-1dot9">
-                                          <button type="submit" class="btn btn-warning __areas __button_khas text-white"><i class="flaticon-magnifying-glass mr-2"></i>Cek Ketersedian Sekarang</button>
-                                      </div>
+                <div class="modal-content " style="border-radius:10px;">
+                    <div class="form-group col-md-12 ">
+                        <br>
+                        <a class="text-dark" href="" style="font-weight: bold; font-size: 16px;float:left">Cek ketersedian</a><br>
+                        <hr>
+
+
+                        <!-- Datepicker Check-in -->
+                        <form action="" method="POST" enctype='multipart/form-data'>
+
+                            <div class="form-group">
+                                <label for="check-in"><small><b>Masuk/ Check in</b></small></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text form-control-sm">
+                                            <i class="far fa-calendar-alt text-black"></i>
+                                        </span>
                                     </div>
-                                    
-                                    <!-- End Checkbox -->
-                                  </form>
-                              </div>
-                              
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <!--Banner v2-->
+                                    <input name="bookingStDt" class="form-control form-control-sm" type="date" id="datepicker" placeholder="Pilih tanggal" value="<?= $this->input->post('bookingStDt') ?>" min="<?php echo date('Y-m-d'); ?>">
+
+                                </div>
+                            </div>
+                            <?php
+                            $tomorrow = date("Y-m-d", strtotime("+1 day"));
+
+                            ?>
+                            <!-- Datepicker Check-out -->
+                            <div class="form-group">
+                                <label for="check-out"><small><b>Keluar/ Check out</b></small></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text form-control-sm">
+                                            <i class="far fa-calendar-alt text-black"></i>
+                                        </span>
+                                    </div>
+                                    <input name="bookingEdDt" class="form-control form-control-sm" type="date" id="datepicker" placeholder="Pilih tanggal" value="<?= $this->input->post('bookingEdDt') ?>" min="<?php echo $tomorrow; ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="guests"><small><b>Tamu/ Guess</b></small></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button type="button" style="background:linear-gradient(109.6deg, rgb(20, 30, 48) 11.2%, rgb(36, 59, 85) 91.1%);" class="btn btn-primary btn-sm form-control-sm" id="decreaseBtn">-</button>
+                                    </div>
+                                    <input name="total_guess" class="form-control text-center form-control-sm" type="number" id="guestsInput" value="<?= $this->input->post('total_guess') ?>" min="1">
+                                    <div class="input-group-append">
+                                        <button type="button" style="background:linear-gradient(109.6deg, rgb(20, 30, 48) 11.2%, rgb(36, 59, 85) 91.1%);" class="btn btn-primary btn-sm form-control-sm" id="increaseBtn">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-sm" style="width:100%; border-radius:8px;background:linear-gradient(109.6deg, rgb(20, 30, 48) 11.2%, rgb(36, 59, 85) 91.1%);float:left;">Cek tersedia</button>
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+                <br>
+
+
+
+
+                <article class="card-group-item">
+
+                    <div class="rounded" style="background: linear-gradient(109.6deg, rgb(20, 30, 48) 11.2%, rgb(36, 59, 85) 91.1%);">
+
+
+                        <div class="border-1">
+
+
+                        </div>
+                    </div>
+            </div>
+            <!--Banner v2-->
+            <script>
+                // Mendapatkan elemen tombol dan input field jumlah tamu
+                var decreaseBtn = document.getElementById('decreaseBtn');
+                var increaseBtn = document.getElementById('increaseBtn');
+                var guestsInput = document.getElementById('guestsInput');
+
+                // Menambahkan event listener untuk tombol tambah
+                increaseBtn.addEventListener('click', function() {
+                    guestsInput.value = parseInt(guestsInput.value) + 1;
+                });
+
+                // Menambahkan event listener untuk tombol kurang
+                decreaseBtn.addEventListener('click', function() {
+                    if (parseInt(guestsInput.value) > 1) {
+                        guestsInput.value = parseInt(guestsInput.value) - 1;
+                    }
+                });
+            </script>

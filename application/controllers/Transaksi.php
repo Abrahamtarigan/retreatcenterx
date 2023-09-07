@@ -50,22 +50,22 @@ class Transaksi extends CI_Controller
         $fetch_user_order = $this->db->query("SELECT * FROM user WHERE userEmail = '$userEmail'");
         $harga_semua = $this->input->get('harga');
         $base = $harga_semua;
-        $new_base = explode( ",", $base);
+        $new_base = explode(",", $base);
         $total_harga = array_sum($new_base);
         foreach ($fetch_user_order->result() as $row) {
             $userId = $row->userId;
             // $roomName =  $row->roomName;
         }
         if ($this->input->get('masakan') & $this->input->get('total') & $this->input->get('meja') & $this->input->get('harga')) {
-            
+
             $masakan = $this->input->get('masakan');
             $total = $this->input->get('total');
             $meja = $this->input->get('meja');
             $harga = $this->input->get('harga');
-            
+
             $bookRestoId = $this->session->userdata('bookRestoId');
 
-            
+
             // echo $bookRestoId;
             $insert = [
                 'id' => $bookRestoId,
@@ -79,8 +79,6 @@ class Transaksi extends CI_Controller
             ];
             $this->transaksi_model->create($insert);
             redirect('transaksi/order_selesai');
-   
-            
         } else {
             redirect('transaksi');
         }
@@ -101,7 +99,7 @@ class Transaksi extends CI_Controller
         $eightdigitrandom = rand(10000, 99999999);
         $randNumber = rand(1211, 8311);
         $randNumber4 = rand(121, 131);
-        $data['bookRestoId'] = $id.$randNumber4.$randNumber;
+        $data['bookRestoId'] = $id . $randNumber4 . $randNumber;
         $this->session->set_userdata('bookRestoId', $data['bookRestoId']);
 
         if ($this->input->get('masakan') & $this->input->get('total') & $this->input->get('meja') & $this->input->get('harga')) {

@@ -15,7 +15,7 @@ class Products extends CI_Controller
         $this->load->library('form_validation');
         $this->load->helper('url');
         $this->load->model('Admin_model', 'admin');
-        $this->load->model('Profac_model','products');
+        $this->load->model('Profac_model', 'products');
         //$role = $this->session->userdata('role_id');
         //$access = $this->db->get_where('user_access_sub_menu', ['role_id' => $role])->row_array();
 
@@ -44,9 +44,9 @@ class Products extends CI_Controller
         $this->_access();
         $data['title'] = 'Administrator';
         $data['user'] = $this->db->get_where('user', ['userEmail' => $this->session->userdata('userEmail')])->row_array();
-        $data['getAllProducts']= $this->products->getAllProducts();      
-        $data['getAllFacility']= $this->products->getAllFacility(); 
-        $data['roomIdToEdit'] = $this->uri->segment('3');     
+        $data['getAllProducts'] = $this->products->getAllProducts();
+        $data['getAllFacility'] = $this->products->getAllFacility();
+        $data['roomIdToEdit'] = $this->uri->segment('3');
 
         $this->load->view('templates_admin/header', $data);
         //$this->load->view('templates_admin/sidebar_s', $data);
@@ -66,7 +66,7 @@ class Products extends CI_Controller
         $data['title'] = 'Tambah Fasilitas';
         $data['user'] = $this->db->get_where('user', ['userEmail' => $this->session->userdata('userEmail')])->row_array();
         $where = array('rmId' => $roomId);
-        $data['roomIdToEdit'] = $this->uri->segment('3');    
+        $data['roomIdToEdit'] = $this->uri->segment('3');
 
         $this->load->view('templates_admin/header', $data);
         //$this->load->view('templates_admin/sidebar_s', $data);
@@ -96,20 +96,20 @@ class Products extends CI_Controller
     }
     public function add_picture()
     {
-        
+
         if ($this->input->method() === 'post') {
             // the user id contain dot, so we must remove i
-           // $uploaded_data = $this->upload->data(); //Returns array of containing all of the data related to the file you uploaded.
+            // $uploaded_data = $this->upload->data(); //Returns array of containing all of the data related to the file you uploaded.
             //$file_name = $uploaded_data['file_name'];
             //$this->load->helper('url');
             //$file_name = $this->input->post('roomName');
-            $config['upload_path']          = FCPATH.'/upload/hotel/';
+            $config['upload_path']          = FCPATH . '/upload/hotel/';
             $config['allowed_types']        = 'gif|jpg|jpeg|png';
             //$config['file_name']            = 'file_name'; 
             $config['overwrite']            = true;
-            $config['max_size']             = 5000; // 1MB
-            $config['max_width']            = 1080;
-            $config['max_height']           = 1080;
+            // $config['max_size']             = 5000; // 1MB
+            // // $config['max_width']            = 1080;
+            // // $config['max_height']           = 1080;
 
             $this->load->library('upload', $config);
 
@@ -123,11 +123,10 @@ class Products extends CI_Controller
                     'rmId' => $this->input->post('roomId'),
                     'roomsPicture' => $file_name
                 ];
-        
+
                 $this->products->tambah_gambar($data, 'tb_rooms_picture');
                 $this->session->set_flashdata('message', 'Gambar Berhasil ditambah');
                 redirect('products/');
-                
             }
         }
 
@@ -135,49 +134,62 @@ class Products extends CI_Controller
     }
     public function add_product()
     {
-        
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('roomName', 'Room Name', 'required');
+        $this->form_validation->set_rules('roomDescription', 'Room Description', 'required');
+        $this->form_validation->set_rules('roomLocation', 'Room Location', 'required');
+        $this->form_validation->set_rules('roomPricePerNight', 'Price Per Night', 'required|numeric');
+        $this->form_validation->set_rules('roomWifiAva', 'Wifi Availability', 'required');
+        $this->form_validation->set_rules('roomBrfAva', 'Breakfast Availability', 'required');
+
         if ($this->input->method() === 'post') {
-            // the user id contain dot, so we must remove i
-           // $uploaded_data = $this->upload->data(); //Returns array of containing all of the data related to the file you uploaded.
-            //$file_name = $uploaded_data['file_name'];
-            //$this->load->helper('url');
-            //$file_name = $this->input->post('roomName');
-            $config['upload_path']          = FCPATH.'/upload/head';
-            $config['allowed_types']        = 'gif|jpg|jpeg|png';
-            //$config['file_name']            = 'file_name'; 
-            $config['overwrite']            = true;
-            $config['max_size']             = 5000; // 1MB
-            $config['max_width']            = 1080;
-            $config['max_height']           = 1080;
+            if ($this->form_validation->run() === false) {
+                // Validasi gagal, tampilkan pesan error dan kembali ke halaman input
+                //$this->load->view('admin/setting_upload_avatar.php', $data);
+                echo "form belum lengkap";
+                return;
+            }
+
+            $config['upload_path']   = FCPATH . '/upload/head';
+            $config['allowed_types'] = 'gif|jpg|jpeg|png';
+            $config['overwrite']     = true;
+            $config['max_size']      = 5000; // 1MB
+            // $config['max_width']     = 1080;
+            // $config['max_height']    = 1080;
 
             $this->load->library('upload', $config);
 
-            if (!$this->upload->do_upload('roomHeadPicture')) {
-                $data['error'] = $this->upload->display_errors();
-            } else {
-                $uploaded_data = $this->upload->data();
-                $file_name = $uploaded_data['file_name'];
+            try {
+                if (!$this->upload->do_upload('roomHeadPicture')) {
+                    throw new Exception($this->upload->display_errors());
+                } else {
+                    $uploaded_data = $this->upload->data();
+                    $file_name = $uploaded_data['file_name'];
 
-                $data = [
-                    //'roomId' => $this->input->post('roomId'),
-                    'roomName' => $this->input->post('roomName'),
-                    'roomDescription' => $this->input->post('roomDescription'),
-                    'roomLocation' => $this->input->post('roomLocation'),
-                    'roomPricePerNight' => $this->input->post('roomPricePerNight'),
-                    'roomHeadPicture' => $file_name,
-                    'roomWifiAva' => $this->input->post('roomWifiAva'),
-                    'roomBrfAva' => $this->input->post('roomBrfAva'),
-                ];
-        
-                $this->products->tambah_produk($data, 'tb_rooms');
-                $this->session->set_flashdata('message', 'Produk Berhasil ditambah');
-                redirect('products/');
-                
+                    $data = [
+                        'roomName' => $this->input->post('roomName'),
+                        'roomDescription' => $this->input->post('roomDescription'),
+                        'roomLocation' => $this->input->post('roomLocation'),
+                        'roomPricePerNight' => $this->input->post('roomPricePerNight'),
+                        'roomHeadPicture' => $file_name,
+                        'roomWifiAva' => $this->input->post('roomWifiAva'),
+                        'roomBrfAva' => $this->input->post('roomBrfAva'),
+                    ];
+
+                    $this->products->tambah_produk($data, 'tb_rooms');
+                    $this->session->set_flashdata('message', 'Produk Berhasil ditambah');
+                    redirect('products/');
+                }
+            } catch (Exception $e) {
+                // Tangani exception, misalnya dengan menampilkan pesan error atau log ke file
+                log_message('error', 'Exception during file upload: ' . $e->getMessage());
+                // Tampilkan pesan error secara detail untuk debugging
+                // show_error($e->getMessage());
+                $data['error'] = 'Terjadi kesalahan saat upload gambar.';
+                //$this->load->view('admin/setting_upload_avatar.php', $data);
+                echo $e->getMessage();
+                return;
             }
         }
-
-        $this->load->view('admin/setting_upload_avatar.php', $data);
     }
-    
-
 }

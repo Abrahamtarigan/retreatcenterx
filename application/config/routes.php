@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -52,3 +52,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'auth';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['home'] = 'Rrevenue/redirect';
+$route['about'] = 'about_controller';
+$route['dash'] = 'auth';
+$route['login'] = 'auth/sign_in';
+$route['logout'] = 'auth/logout';
+$route['register'] = 'auth/regis';

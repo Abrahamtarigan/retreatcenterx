@@ -2,32 +2,27 @@
 <?php if ($this->session->flashdata('message')) : ?>
 
 <?php endif; ?>
-<div class="container  __areas">
+<div class="container  ">
 
-  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 __areasin">
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
     <div class="page-header ">
 
 
       <div class="page-breadcrumb">
 
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item text-warning"><a href="<?php echo site_url(''); ?>" class="breadcrumb-link text-dark">Dashboard</a></li>
-            <li class="breadcrumb-item active text-dark" aria-current="page"><?php echo $this->uri->segment(1); ?></li>
 
-          </ol>
-        </nav>
       </div>
-      <hr>
+
     </div>
-    <main class="mt-4 pt-4">
-      <div class="container dark-grey-text mt-5">
+
+
+    <main class="mt-2">
+      <div class="container dark-grey-text ">
 
         <div class="card-body">
           <!-- Shopping cart table -->
           <?php if (count($this->cart->contents()) != 0) : ?>
-            <h3 style="margin:-80px;" class="text-center">Keranjang Belanja anda</h3>
-            <br><br><br>
+
 
             <div class="alert bg-info mb-5 py-4 __button_khas" role="alert">
               <div class="d-flex">
@@ -47,7 +42,7 @@
                 </div>
               </div>
             </div>
-            <div class="table table-responsive mb-2 __areas">
+            <div class="table table-responsive mb-2 ">
               <table class="table mb-0">
                 <thead class="">
                   <tr class="">
@@ -92,45 +87,66 @@
             <td class="align-middle text-center"><a href="<?= base_url('restaurant/hapus_items/' . $items['rowid']) ?>"><small><i class="fa fa-trash text-danger" aria-hidden="true"></i></small></a></td>
             </tr>
             </tr>
+
           <?php endforeach; ?>
           <tr>
-            <td colspan="3" class="align-middle text-right __area_text"><span class="">
-                <h5>
-                  <u>Total Rp <?= number_format($this->cart->total(), 0, ',', '.') ?>
-                </h5></u>
-                </<span>
-            </td>
-            <?php
-            if (isset($userId)) {
-            ?>
-              <td><a href="<?= base_url('keranjang/checkout') ?>"><button class="btn btn-warning btn-md float-right __button_khas btn btn-outline-warning font-weight-bold ">Lanjutkan Pembayaran&nbsp;<i class="fa-solid fa-cart-shopping"></i></button></a></td>
-            <?php
-            } else {
-            ?>
-              <td><a href="<?= base_url('auth/sign_in') ?>"><button class="btn btn-success rounded btn-md float-right">
-                    <p class="text-dark" style="font-weight:5px;">Login Terlebih Dahulu<i class="fa-solid fa-cart-shopping"></i></p>
-                  </button></a></td>
-            <?php
-            }
+            <td colspan="3" class="align-middle text-right __area_text">
 
-            ?>
+            </td>
+            <td></td>
+            <td></td>
+
 
           </tr>
           </tbody>
           </table>
+          <td>
+            <?php
+            if (isset($userId)) {
+            ?>
+              <h5>
+                <b>Rp <?= number_format($this->cart->total(), 0, ',', '.') ?></b>
+              </h5>
+              <a href="<?= base_url('keranjang/checkout'); ?>" style="font-weight:bold;background: linear-gradient(109.6deg, rgb(20, 30, 48) 11.2%, rgb(36, 59, 85) 91.1%);" class="btn btn-primary btn btn-outline-dark   text-white btn-sm rounded"><small><b>Lanjutkan proses pemesanan</b></small></a>
+            <?php } else { ?>
+          <td>
+
+            <h5>
+              <b>Rp <?= number_format($this->cart->total(), 0, ',', '.') ?></b>
+            </h5>
+            <a href="<?= base_url('login'); ?>" style="font-weight:bold;" class="btn btn-warning btn btn-outline-dark   text-dark btn-sm rounded"><small><b>Silahkan login terlebih dahulu</b></small></a>
+          </td>
+        <?php } ?>
+
+        </td>
         </div>
+        <br>
+        <br>
+        <br>
       <?php else : ?>
-        <h3 class="text-center">Keranjang Belanja Kosong!</h3>
+        <br>
+        <br>
+        <br><br><br><br>
+        <h3 class="text-center"><br><span class="logo"><i class="fa-solid fa-cart-arrow-down fa-2xl "></i></span><br>
+          <br><b>Keranjang kamu masih kosong nih !!!</b> <br><br><br><br><br><br>
+        </h3>
       <?php endif; ?>
+
       </div>
-
+    </main>
   </div>
-  </main>
+</div>
+
+
 
 
 
 </div>
 </div>
+</div>
+</div>
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.29.2/sweetalert2.all.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 

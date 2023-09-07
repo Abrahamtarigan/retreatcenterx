@@ -76,10 +76,6 @@ class Keranjang extends CI_Controller
         }
 
 
-
-
-
-
         $this->load->view('templates/header', $data);
         // $this->load->view('templates/sidebar', $data);
         $this->load->view('keranjang/index', $datas, $data);
@@ -134,8 +130,10 @@ class Keranjang extends CI_Controller
         //$order_id = 'RC-'.$userId.$randNumber4.$randNumber;
         //$this->session->set_userdata('bookRestoId', $bookRestoId);
         // Populate items
+
         $i = 0;
         //echo $fetch_id;
+
         foreach ($this->cart->contents() as $key => $val) :
             $items[$i] = [
                 'id'             => $this->session->userdata('bookingId'),
@@ -147,6 +145,7 @@ class Keranjang extends CI_Controller
                 'category'         => $val['option'],
                 'name'             => $val['name'],
                 'total_price'   => $val['price'] * $val['qty']
+
             ];
             $i++;
 
@@ -176,6 +175,7 @@ class Keranjang extends CI_Controller
                 $order_hotel[$j] = [
                     'bookingId' => $this->session->userdata('bookingId'),
                     'bookingId_text' => $order_idt,
+                    'ext_id' => $val['coupon'],
                     'bookingUserId' => $userId,
                     'bookingRoomId' => $roomIdBook,
                     'bookingStDt' => $bookingStart,
@@ -183,7 +183,7 @@ class Keranjang extends CI_Controller
                     'bookingStDt_check' => $bookingStart . ' 02:00:00',
                     'bookingEdDt_check' => $bookingEnd . ' 12:00:00',
                     'bookingTime' => date('Y-m-d H:i:s'),
-                    'bookingTimeStacEnd' => date('Y-m-d H:i:s', strtotime('+10 minutes', strtotime($current_date_time))),
+                    'bookingTimeStacEnd' => date('Y-m-d H:i:s', strtotime('+29 minutes', strtotime($current_date_time))),
                     'bookingNights' => $bookingNights,
                     'bookingTotalPay' => $val['price'] * $val['qty'],
                     'userEditPriceId' => '-',
@@ -219,10 +219,11 @@ class Keranjang extends CI_Controller
             }
         endforeach;
         $this->cart->destroy();
+        redirect('guess/cart');
 
         unset(
             $_SESSION['bookingId'],
-            $_SESSION['order_IDT'],
+            $_SESSION['order_idt'],
             $_SESSION['roomId'],
         );
     }

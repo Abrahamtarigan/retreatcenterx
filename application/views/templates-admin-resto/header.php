@@ -326,6 +326,9 @@
   <link rel="stylesheet" href="<?= base_url('assets/'); ?>vendor/animate.css">
   <link rel="stylesheet" href="<?= base_url('assets/'); ?>vendor/chartist/dist/chartist.min.css">
   <link rel="stylesheet" href="<?= base_url('assets/'); ?>vendor/chartist-js-tooltip/chartist-plugin-tooltip.css">
+  <!--  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
@@ -408,17 +411,6 @@
       <!-- Navigation -->
       <div id="navBar" class="navbar-collapse u-header__navbar-collapse collapse order-2 order-xl-0 pt-4 p-xl-0 position-relative ">
         <ul class="navbar-nav u-header__navbar-nav">
-
-
-
-
-
-
-
-
-
-
-
 
 
           <li class="nav-item hs-has-sub-menu u-header__nav-item  btn-sm" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">

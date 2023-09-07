@@ -1,58 +1,215 @@
-<div class="banner-block banner-v2 bg-color-2" style="box-shadow: -1px 1px 18px -3px rgba(0,0,0,0.8);
--webkit-box-shadow: -1px 1px 18px -3px rgba(0,0,0,0.8);
--moz-box-shadow: -1px 1px 18px -3px rgba(0,0,0,0.8);border-radius: 123px 10px 10px 28px;
--webkit-border-radius: 123px 10px 10px 28px;
--moz-border-radius: 123px 10px 10px 28px;">
-    <div class="container space-2 space-lg-3 space-top-xl-2 space-bottom-xl-0">
-        <div class="row align-items-lg-center align-items-xl-start mt-xl-4 pt-1">
-            <div class="col mb-7 mb-lg-0 mt-xl-9">
-                <h5 class="font-size-xs-30 font-size-40 font-weight-bold text-black mb-2">Memberikan waktu Ketenangan didalam hidup</h5>
-                <p class="font-size-18 font-weight-normal text-black mb-4 mb-md-5 pb-lg-2">Retreat Center yang secara geografis berbatasan langsung dengan dataran tinggi Kabupaten Karo, Sumatera Utara merupakan pesona wisata destinasi hijau</p>
-                <button type="button" class="mb-0 btn btn-wide rounded-xs transition-3d-hover btn-outline-black border-width-2 py-1 pl-lg-4 text-left mb-4 mb-md-0 mr-md-2 mr-lg-4">
-                    <span class="media align-items-center ml-1">
+<div class="container-fluid">
+    <div class="container">
+        <br>
+        <div class="row">
 
-                        <span class="media-body">
-                            <strong class="font-weight-bold">Restaurant</strong>
-                            <span class="d-block font-weight-normal font-size-14">Available now </span>
-                        </span>
-                    </span>
-                </button>
-                <button type="button" class="mb-0 btn btn-wide rounded-xs transition-3d-hover btn-outline-black border-width-2 py-1 pl-lg-4 text-left mb-4 mb-md-0 mr-md-2 mr-lg-4">
-                    <span class="media align-items-center ml-1">
+            <div class="col-lg-3">
 
-                        <span class="media-body">
-                            <strong class="font-weight-bold">Villa, Ballroom</strong>
-                            <span class="d-block font-weight-normal font-size-14">Available now </span>
-                        </span>
-                    </span>
-                </button>
-                <button type="button" class="mb-0 btn btn-wide rounded-xs transition-3d-hover btn-outline-black border-width-2 py-1 pl-lg-4 text-left mb-4 mb-md-0 mr-md-2 mr-lg-4">
-                    <span class="media align-items-center ml-1">
 
-                        <span class="media-body">
-                            <strong class="font-weight-bold">Swimming Pool</strong>
-                            <span class="d-block font-weight-normal font-size-14">Available now</span>
-                        </span>
-                    </span>
-                </button>
-                <button type="button" class="btn btn-wide rounded-xs transition-3d-hover btn-outline-black border-width-2 py-1 pl-lg-4 text-left">
-                    <span class="media align-items-center ml-1">
 
-                        <span class="media-body">
-                            <strong class="font-weight-bold">Muzeum</strong>
-                            <span class="d-block font-weight-normal font-size-14">Available now</span>
-                        </span>
-                    </span>
-                </button>
+
+
+                <article class="card-group-item">
+
+                    <div class="modal-content " style="border-radius:10px;">
+                        <div class="form-group col-md-12 ">
+                            <br>
+                            <a class="text-dark" href="" style="font-weight: bold; font-size: 16px;float:left">Cek ketersedian</a><br>
+                            <hr>
+                            <!-- Datepicker Check-in -->
+                            <form action="" method="POST" enctype='multipart/form-data'>
+                                <div class="form-group">
+                                    <label for="check-in"><small><b>Masuk/ Check in</b></small></label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text form-control-sm">
+                                                <i class="far fa-calendar-alt text-black"></i>
+                                            </span>
+                                        </div>
+                                        <input name="bookingStDt" class="form-control form-control-sm" type="date" id="datepicker" placeholder="Pilih tanggal" value="<?php echo date('Y-m-d'); ?>" min="<?php echo date('Y-m-d'); ?>">
+
+                                    </div>
+                                </div>
+                                <?php
+                                $tomorrow = date("Y-m-d", strtotime("+1 day"));
+
+                                ?>
+                                <!-- Datepicker Check-out -->
+                                <div class="form-group">
+                                    <label for="check-out"><small><b>Keluar/ Check out</b></small></label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text form-control-sm">
+                                                <i class="far fa-calendar-alt text-black"></i>
+                                            </span>
+                                        </div>
+                                        <input name="bookingEdDt" class="form-control form-control-sm" type="date" id="datepicker" placeholder="Pilih tanggal" value="<?php echo $tomorrow; ?>" min="<?php echo $tomorrow; ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="guests"><small><b>Tamu/ Guess</b></small></label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <button type="button" style="background:linear-gradient(109.6deg, rgb(20, 30, 48) 11.2%, rgb(36, 59, 85) 91.1%);" class="btn btn-primary btn-sm form-control-sm" id="decreaseBtn">-</button>
+                                        </div>
+                                        <input name="total_guess" class="form-control text-center form-control-sm" type="number" id="guestsInput" value="1" min="1">
+                                        <div class="input-group-append">
+                                            <button type="button" style="background:linear-gradient(109.6deg, rgb(20, 30, 48) 11.2%, rgb(36, 59, 85) 91.1%);" class="btn btn-primary btn-sm form-control-sm" id="increaseBtn">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-sm" style="width:100%; border-radius:8px;background:linear-gradient(109.6deg, rgb(20, 30, 48) 11.2%, rgb(36, 59, 85) 91.1%);float:left;">Cek tersedia</button>
+                                </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+                    <br>
+                    <div class="modal-content" style="border-radius:10px;">
+                        <div class="form-group col-md-12 ">
+                            <br>
+                            <b style="float:left;"><span class="logo"><i class="fa-solid fa-headset"></i></span>&nbsp;&nbsp;&nbsp;Hubungi cepat :</b>
+                            <br>
+                            <hr>
+                            <li><small>Whatsapp : <b>+62 813 890 900</b></small></li>
+                            <li><small>Email : <b>infopromo@retreatcenter.id</b></small></li>
+
+
+                        </div>
+                    </div>
+
+                </article>
             </div>
-            <div class="col-lg-5 col-xl-6dot5 text-right mr-xl-n2">
-                <img style="border-radius: 123px 10px 10px 28px;
--webkit-border-radius: 123px 10px 10px 28px;
--moz-border-radius: 123px 10px 10px 28px;" class="img-fluid" src="https://lh3.googleusercontent.com/p/AF1QipPsYWD2ombzNBIIZWiCdFq49SXupClPnx3bgIOL=s680-w680-h510" alt="Image-Description">
+            <div class="col-lg-9">
+                <article class="card-group-item">
+                    <div class="col-lg-12">
+
+                        <div class="container">
+                            <img style="width:100%; border-radius:8px;" src="<?= base_url('upload/slide/slide1.png'); ?>" alt="Gambar Hotel XYZ">
+                        </div>
+
+                    </div>
+
+                    <br>
+                    <div class="media">
+
+                        <div class="media-body">
+                            <br>
+                            <h5 class="mt-0 text-center"><i class="fa-solid fa-microphone"></i>&nbsp;<b>Mengapa harus Staycation di Retreat Center</b></h5>
+                            <p class="text-center"><small>Dengan pengalaman maksimal kami dalam melayani tamu dengan harga yang rendah, kami menawarkan beberapa layanan</small></p>
+                            <div class="row">
+                                <div class="col-sm-4">
+
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center">
+                                            <span class="logo"><i class="fa-solid fa-igloo fa-2xl"></i></span>&nbsp;
+                                            <br> <br> <b>Villa</b>
+
+                                        </h5>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-4">
+
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center">
+                                            <span class="logo"><i class="fa-solid fa-utensils fa-2xl"></i></span>&nbsp;
+                                            <br> <br> <b>Restorant</b>
+
+                                        </h5>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-4">
+
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center">
+                                            <span class="logo"><i class="fa-solid fa-ticket-simple fa-2xl"></i></span>&nbsp;
+                                            <br> <br> <b>Tickets</b>
+
+                                        </h5>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-4">
+
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center">
+                                            <span class="logo"><i class="fa-solid fa-person-swimming fa-2xl"></i></span>&nbsp;
+                                            <br> <br> <b>Kolam renang</b>
+
+                                        </h5>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-4">
+
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center">
+                                            <span class="logo"><i class="fa-solid fa-person-running fa-2xl"></i></span>&nbsp;
+                                            <br> <br><b>Jogging track</b>
+
+                                        </h5>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-4">
+
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center">
+                                            <span class="logo"><i class="fa-solid fa-panorama fa-2xl"></i></span>&nbsp;
+                                            <br> <br> <b>Panorama</b>
+
+                                        </h5>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
             </div>
         </div>
+        </article>
     </div>
 </div>
 </div>
+<script>
+    $(function() {
+        $("#datepicker").datepicker({
+            dateFormat: "dd/mm/yy",
+            minDate: 0,
+            showButtonPanel: true,
+            beforeShow: function(input) {
+                $(input).attr("autocomplete", "off");
+            }
+        });
+    });
+</script>
+<script>
+    // Mendapatkan elemen tombol dan input field jumlah tamu
+    var decreaseBtn = document.getElementById('decreaseBtn');
+    var increaseBtn = document.getElementById('increaseBtn');
+    var guestsInput = document.getElementById('guestsInput');
 
-<!--End Banner v2-->
+    // Menambahkan event listener untuk tombol tambah
+    increaseBtn.addEventListener('click', function() {
+        guestsInput.value = parseInt(guestsInput.value) + 1;
+    });
+
+    // Menambahkan event listener untuk tombol kurang
+    decreaseBtn.addEventListener('click', function() {
+        if (parseInt(guestsInput.value) > 1) {
+            guestsInput.value = parseInt(guestsInput.value) - 1;
+        }
+    });
+</script>

@@ -1,7 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/application/third_party/dompdf/lib/php-font-lib/src/FontLib" isTestSource="false" packagePrefix="FontLib\" />
+      <sourceFolder url="file://$MODULE_DIR$/application/third_party/dompdf/lib/php-font-lib/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/application/third_party/dompdf/lib/php-svg-lib/src/Svg" isTestSource="false" packagePrefix="Svg\" />
+      <sourceFolder url="file://$MODULE_DIR$/application/third_party/dompdf/lib/php-svg-lib/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/application/third_party/dompdf/lib/php-svg-lib/tests/Svg" isTestSource="true" packagePrefix="Svg\Tests\" />
+      <sourceFolder url="file://$MODULE_DIR$/application/third_party/dompdf/src" isTestSource="false" packagePrefix="Dompdf\" />
+      <sourceFolder url="file://$MODULE_DIR$/application/third_party/dompdf/tests" isTestSource="true" packagePrefix="Dompdf\Tests\" />
+      <sourceFolder url="file://$MODULE_DIR$/application/third_party/dompdf/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/assets/html2pdf/spipu/html2pdf/src" isTestSource="false" packagePrefix="Spipu\Html2Pdf\" />
+      <sourceFolder url="file://$MODULE_DIR$/assets/html2pdf/spipu/html2pdf/src/Tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/instantiator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/firebase/php-jwt" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/google/apiclient" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/google/apiclient-services" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/google/auth" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/justinrainbow/json-schema" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/mikey179/vfsstream" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/monolog/monolog" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/myclabs/deep-copy" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/paragonie/constant_time_encoding" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/paragonie/random_compat" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpseclib/phpseclib" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpspec/prophecy" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-code-coverage" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-file-iterator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-text-template" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-timer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-token-stream" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/phpunit" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/phpunit-mock-objects" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-client" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-factory" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ralouphie/getallheaders" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/comparator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/diff" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/environment" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/exporter" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/global-state" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/recursion-context" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/resource-operations" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/version" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/seld/jsonlint" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/seld/phar-utils" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/snapappointments/bootstrap-select" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony__/console" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony__/deprecation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony__/filesystem" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony__/finder" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony__/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony__/polyfill-intl-grapheme" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony__/polyfill-intl-normalizer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony__/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony__/polyfill-php73" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony__/polyfill-php80" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony__/process" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony__/service-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony__/string" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony__/yaml" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/tinymce/tinymce" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

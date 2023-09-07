@@ -77,7 +77,7 @@ class Transaksi_model extends CI_Model
 
         $this->db
             ->select('*')
-            ->from('tb_transaksi_resto');
+            ->from('tb_log_rooms_booking');
         //->join('tb_rooms', 'tb_rooms.roomId= tb_log_rooms_bookings.bookingRoomId')
         //->join('user', 'user.userId = tb_log_rooms_bookings.bookingUserId')
         //->join('tb_ref_status_transaction', 'tb_ref_status_transaction.status_booking_id = tb_log_rooms_bookings.status_booking')

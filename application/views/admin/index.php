@@ -10,9 +10,9 @@
 
 <?php endif; ?>
 
-<aside class="col-lg-9">
+<aside class="col-lg-12">
   <div class="container">
-    
+
     <div class="alert alert-success">
       <h3>Statistik Terkini
       </h3>
@@ -21,21 +21,21 @@
       </small>
 
     </div>
-   
+
     <div id="responseContainer">
     </div>
-    
-  <br/>
-  
-  <?php
 
-  $menu = $this->uri->segment(2);
-  echo $menu;
-  $queryMenu = $this->db->get_where('user_menu', ['menu' => $menu])->row_array();
-  $menu_id = $queryMenu['id'];
+    <br />
 
-  echo $menu_id;
-  ?>
+    <?php
+
+    $menu = $this->uri->segment(2);
+    echo $menu;
+    $queryMenu = $this->db->get_where('user_menu', ['menu' => $menu])->row_array();
+    $menu_id = $queryMenu['id'];
+
+    echo $menu_id;
+    ?>
 </aside> <!-- col.// -->
 
 </div> <!-- row.// -->
@@ -186,10 +186,10 @@
 </script>
 
 <script>
-    $(document).ready(function(){  
-        setInterval(function(){   
-          $('#responseContainer').load('test');
-        }, 1000);
-    });
-    </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  $(document).ready(function() {
+    setInterval(function() {
+      $('#responseContainer').load('test');
+    }, 1000);
+  });
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
