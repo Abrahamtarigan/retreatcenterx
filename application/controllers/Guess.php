@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
+// update terbaru
 class Guess extends CI_Controller
 {
     public function __construct()
@@ -90,7 +90,7 @@ class Guess extends CI_Controller
         $tanggal = $this->input->get('id_kategori');
 
         // Konfigurasi pagination
-        $config['base_url'] = base_url('guess/cart/');
+        $config['base_url'] = base_url('Guess/cart/');
         $config['total_rows'] = $this->guess->count_bookings_hotel($userId, $bookingId, $tanggal);
         $config['per_page'] = 5;
         $config['uri_segment'] = 3;
@@ -201,7 +201,7 @@ class Guess extends CI_Controller
                         );
 
                         $this->guess->validate_proses($where, $data, 'tb_rooms_bookings');
-                        redirect('guess/cart?view=' . $view);
+                        redirect('Guess/Cart?view=' . $view);
                         $this->session->set_flashdata('success_message', 'Data berhasil diperbarui.');
 
                         // Redirect ke halaman lain atau tampilkan pesan sukses
