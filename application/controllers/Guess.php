@@ -224,7 +224,7 @@ class Guess extends CI_Controller
         } else {
             $this->load->view('templates_guess/header', $data);
             $this->load->view('templates_guess/sidebar', $data);
-            $this->load->view('guess/cart', $data);
+            $this->load->view('guess/Cart', $data);
             $this->load->view('templates_admin/footer', $data);
         }
     }
