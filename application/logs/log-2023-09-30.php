@@ -1946,3 +1946,160 @@ INFO - 2023-09-30 04:32:48 --> File loaded: /Applications/MAMP/htdocs/retreatcen
 INFO - 2023-09-30 04:32:48 --> File loaded: /Applications/MAMP/htdocs/retreatcenterx/application/views/admin-resto/__Produk/resto-admin-js.php
 INFO - 2023-09-30 04:32:48 --> Final output sent to browser
 DEBUG - 2023-09-30 04:32:48 --> Total execution time: 0.3199
+INFO - 2023-09-30 05:07:52 --> Config Class Initialized
+INFO - 2023-09-30 05:07:52 --> Hooks Class Initialized
+DEBUG - 2023-09-30 05:07:52 --> UTF-8 Support Enabled
+INFO - 2023-09-30 05:07:52 --> Utf8 Class Initialized
+INFO - 2023-09-30 05:07:52 --> URI Class Initialized
+DEBUG - 2023-09-30 05:07:52 --> No URI present. Default controller set.
+INFO - 2023-09-30 05:07:52 --> Router Class Initialized
+INFO - 2023-09-30 05:07:52 --> Output Class Initialized
+INFO - 2023-09-30 05:07:52 --> Security Class Initialized
+DEBUG - 2023-09-30 05:07:53 --> Global POST, GET and COOKIE data sanitized
+INFO - 2023-09-30 05:07:53 --> Input Class Initialized
+INFO - 2023-09-30 05:07:53 --> Language Class Initialized
+INFO - 2023-09-30 05:07:53 --> Loader Class Initialized
+INFO - 2023-09-30 05:07:53 --> Helper loaded: url_helper
+INFO - 2023-09-30 05:07:53 --> Helper loaded: file_helper
+INFO - 2023-09-30 05:07:53 --> Helper loaded: security_helper
+INFO - 2023-09-30 05:07:53 --> Helper loaded: mena_helper
+INFO - 2023-09-30 05:07:53 --> Helper loaded: pagin_helper
+INFO - 2023-09-30 05:07:53 --> Helper loaded: array_helper
+INFO - 2023-09-30 05:07:53 --> Helper loaded: html_helper
+INFO - 2023-09-30 05:07:53 --> Database Driver Class Initialized
+DEBUG - 2023-09-30 05:07:53 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2023-09-30 05:07:53 --> Session: Class initialized using 'files' driver.
+DEBUG - 2023-09-30 05:07:53 --> Session class already loaded. Second attempt ignored.
+INFO - 2023-09-30 05:07:53 --> Cart Class Initialized
+INFO - 2023-09-30 05:07:53 --> Controller Class Initialized
+INFO - 2023-09-30 05:07:53 --> Model "R_model" initialized
+INFO - 2023-09-30 05:07:53 --> Helper loaded: form_helper
+INFO - 2023-09-30 05:07:53 --> Form Validation Class Initialized
+DEBUG - 2023-09-30 05:07:53 --> Session class already loaded. Second attempt ignored.
+INFO - 2023-09-30 05:07:53 --> Model "User_model" initialized
+INFO - 2023-09-30 05:07:53 --> User Agent Class Initialized
+INFO - 2023-09-30 05:07:53 --> Model "Produk_model" initialized
+INFO - 2023-09-30 05:07:53 --> Model "Transactions_model" initialized
+INFO - 2023-09-30 05:07:53 --> File loaded: /Applications/MAMP/htdocs/retreatcenterx/application/views/templates/header.php
+INFO - 2023-09-30 05:07:53 --> File loaded: /Applications/MAMP/htdocs/retreatcenterx/application/views/auth/home.php
+INFO - 2023-09-30 05:07:53 --> File loaded: /Applications/MAMP/htdocs/retreatcenterx/application/views/templates/content.php
+INFO - 2023-09-30 05:07:53 --> File loaded: /Applications/MAMP/htdocs/retreatcenterx/application/views/templates/footer.php
+INFO - 2023-09-30 05:07:53 --> Final output sent to browser
+DEBUG - 2023-09-30 05:07:53 --> Total execution time: 0.2959
+INFO - 2023-09-30 05:07:57 --> Config Class Initialized
+INFO - 2023-09-30 05:07:57 --> Hooks Class Initialized
+DEBUG - 2023-09-30 05:07:57 --> UTF-8 Support Enabled
+INFO - 2023-09-30 05:07:57 --> Utf8 Class Initialized
+INFO - 2023-09-30 05:07:57 --> URI Class Initialized
+DEBUG - 2023-09-30 05:07:57 --> No URI present. Default controller set.
+INFO - 2023-09-30 05:07:57 --> Router Class Initialized
+INFO - 2023-09-30 05:07:57 --> Output Class Initialized
+INFO - 2023-09-30 05:07:57 --> Security Class Initialized
+DEBUG - 2023-09-30 05:07:57 --> Global POST, GET and COOKIE data sanitized
+INFO - 2023-09-30 05:07:57 --> Input Class Initialized
+INFO - 2023-09-30 05:07:57 --> Language Class Initialized
+INFO - 2023-09-30 05:07:57 --> Loader Class Initialized
+INFO - 2023-09-30 05:07:57 --> Helper loaded: url_helper
+INFO - 2023-09-30 05:07:57 --> Helper loaded: file_helper
+INFO - 2023-09-30 05:07:57 --> Helper loaded: security_helper
+INFO - 2023-09-30 05:07:57 --> Helper loaded: mena_helper
+INFO - 2023-09-30 05:07:57 --> Helper loaded: pagin_helper
+INFO - 2023-09-30 05:07:57 --> Helper loaded: array_helper
+INFO - 2023-09-30 05:07:57 --> Helper loaded: html_helper
+INFO - 2023-09-30 05:07:57 --> Database Driver Class Initialized
+DEBUG - 2023-09-30 05:07:57 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2023-09-30 05:07:57 --> Session: Class initialized using 'files' driver.
+DEBUG - 2023-09-30 05:07:58 --> Session class already loaded. Second attempt ignored.
+INFO - 2023-09-30 05:07:58 --> Cart Class Initialized
+INFO - 2023-09-30 05:07:58 --> Controller Class Initialized
+INFO - 2023-09-30 05:07:58 --> Model "R_model" initialized
+INFO - 2023-09-30 05:07:58 --> Helper loaded: form_helper
+INFO - 2023-09-30 05:07:58 --> Form Validation Class Initialized
+DEBUG - 2023-09-30 05:07:58 --> Session class already loaded. Second attempt ignored.
+INFO - 2023-09-30 05:07:58 --> Model "User_model" initialized
+INFO - 2023-09-30 05:07:58 --> User Agent Class Initialized
+INFO - 2023-09-30 05:07:58 --> Model "Produk_model" initialized
+INFO - 2023-09-30 05:07:58 --> Model "Transactions_model" initialized
+INFO - 2023-09-30 05:07:58 --> Language file loaded: language/english/form_validation_lang.php
+INFO - 2023-09-30 05:07:58 --> File loaded: /Applications/MAMP/htdocs/retreatcenterx/application/views/templates/header.php
+INFO - 2023-09-30 05:07:58 --> File loaded: /Applications/MAMP/htdocs/retreatcenterx/application/views/templates/booking-date.php
+INFO - 2023-09-30 05:07:58 --> File loaded: /Applications/MAMP/htdocs/retreatcenterx/application/views/auth/home.php
+INFO - 2023-09-30 05:07:58 --> File loaded: /Applications/MAMP/htdocs/retreatcenterx/application/views/templates/footer.php
+INFO - 2023-09-30 05:07:58 --> Final output sent to browser
+DEBUG - 2023-09-30 05:07:58 --> Total execution time: 0.2621
+INFO - 2023-09-30 05:08:20 --> Config Class Initialized
+INFO - 2023-09-30 05:08:20 --> Hooks Class Initialized
+DEBUG - 2023-09-30 05:08:20 --> UTF-8 Support Enabled
+INFO - 2023-09-30 05:08:20 --> Utf8 Class Initialized
+INFO - 2023-09-30 05:08:20 --> URI Class Initialized
+INFO - 2023-09-30 05:08:20 --> Router Class Initialized
+INFO - 2023-09-30 05:08:20 --> Output Class Initialized
+INFO - 2023-09-30 05:08:20 --> Security Class Initialized
+DEBUG - 2023-09-30 05:08:20 --> Global POST, GET and COOKIE data sanitized
+INFO - 2023-09-30 05:08:20 --> Input Class Initialized
+INFO - 2023-09-30 05:08:20 --> Language Class Initialized
+INFO - 2023-09-30 05:08:20 --> Loader Class Initialized
+INFO - 2023-09-30 05:08:20 --> Helper loaded: url_helper
+INFO - 2023-09-30 05:08:20 --> Helper loaded: file_helper
+INFO - 2023-09-30 05:08:20 --> Helper loaded: security_helper
+INFO - 2023-09-30 05:08:20 --> Helper loaded: mena_helper
+INFO - 2023-09-30 05:08:20 --> Helper loaded: pagin_helper
+INFO - 2023-09-30 05:08:20 --> Helper loaded: array_helper
+INFO - 2023-09-30 05:08:20 --> Helper loaded: html_helper
+INFO - 2023-09-30 05:08:20 --> Database Driver Class Initialized
+DEBUG - 2023-09-30 05:08:20 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2023-09-30 05:08:20 --> Session: Class initialized using 'files' driver.
+DEBUG - 2023-09-30 05:08:20 --> Session class already loaded. Second attempt ignored.
+INFO - 2023-09-30 05:08:20 --> Cart Class Initialized
+INFO - 2023-09-30 05:08:20 --> Controller Class Initialized
+INFO - 2023-09-30 05:08:20 --> Model "R_model" initialized
+INFO - 2023-09-30 05:08:20 --> Helper loaded: form_helper
+INFO - 2023-09-30 05:08:20 --> Form Validation Class Initialized
+DEBUG - 2023-09-30 05:08:20 --> Session class already loaded. Second attempt ignored.
+INFO - 2023-09-30 05:08:20 --> Model "User_model" initialized
+INFO - 2023-09-30 05:08:20 --> User Agent Class Initialized
+INFO - 2023-09-30 05:08:20 --> Model "Produk_model" initialized
+INFO - 2023-09-30 05:08:20 --> Model "Transactions_model" initialized
+INFO - 2023-09-30 05:08:20 --> File loaded: /Applications/MAMP/htdocs/retreatcenterx/application/views/templates/header.php
+INFO - 2023-09-30 05:08:20 --> File loaded: /Applications/MAMP/htdocs/retreatcenterx/application/views/auth/produk.php
+INFO - 2023-09-30 05:08:20 --> File loaded: /Applications/MAMP/htdocs/retreatcenterx/application/views/templates/footer.php
+INFO - 2023-09-30 05:08:20 --> Final output sent to browser
+DEBUG - 2023-09-30 05:08:20 --> Total execution time: 0.3849
+INFO - 2023-09-30 05:08:50 --> Config Class Initialized
+INFO - 2023-09-30 05:08:50 --> Hooks Class Initialized
+DEBUG - 2023-09-30 05:08:50 --> UTF-8 Support Enabled
+INFO - 2023-09-30 05:08:50 --> Utf8 Class Initialized
+INFO - 2023-09-30 05:08:50 --> URI Class Initialized
+INFO - 2023-09-30 05:08:50 --> Router Class Initialized
+INFO - 2023-09-30 05:08:50 --> Output Class Initialized
+INFO - 2023-09-30 05:08:50 --> Security Class Initialized
+DEBUG - 2023-09-30 05:08:50 --> Global POST, GET and COOKIE data sanitized
+INFO - 2023-09-30 05:08:50 --> Input Class Initialized
+INFO - 2023-09-30 05:08:50 --> Language Class Initialized
+INFO - 2023-09-30 05:08:50 --> Loader Class Initialized
+INFO - 2023-09-30 05:08:50 --> Helper loaded: url_helper
+INFO - 2023-09-30 05:08:50 --> Helper loaded: file_helper
+INFO - 2023-09-30 05:08:50 --> Helper loaded: security_helper
+INFO - 2023-09-30 05:08:50 --> Helper loaded: mena_helper
+INFO - 2023-09-30 05:08:50 --> Helper loaded: pagin_helper
+INFO - 2023-09-30 05:08:50 --> Helper loaded: array_helper
+INFO - 2023-09-30 05:08:50 --> Helper loaded: html_helper
+INFO - 2023-09-30 05:08:50 --> Database Driver Class Initialized
+DEBUG - 2023-09-30 05:08:50 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2023-09-30 05:08:50 --> Session: Class initialized using 'files' driver.
+DEBUG - 2023-09-30 05:08:50 --> Session class already loaded. Second attempt ignored.
+INFO - 2023-09-30 05:08:50 --> Cart Class Initialized
+INFO - 2023-09-30 05:08:50 --> Controller Class Initialized
+INFO - 2023-09-30 05:08:50 --> Model "R_model" initialized
+INFO - 2023-09-30 05:08:50 --> Helper loaded: form_helper
+INFO - 2023-09-30 05:08:50 --> Form Validation Class Initialized
+DEBUG - 2023-09-30 05:08:50 --> Session class already loaded. Second attempt ignored.
+INFO - 2023-09-30 05:08:50 --> Model "User_model" initialized
+INFO - 2023-09-30 05:08:50 --> User Agent Class Initialized
+INFO - 2023-09-30 05:08:50 --> Model "Produk_model" initialized
+INFO - 2023-09-30 05:08:50 --> Model "Transactions_model" initialized
+INFO - 2023-09-30 05:08:50 --> File loaded: /Applications/MAMP/htdocs/retreatcenterx/application/views/templates/header.php
+INFO - 2023-09-30 05:08:50 --> File loaded: /Applications/MAMP/htdocs/retreatcenterx/application/views/auth/produk.php
+INFO - 2023-09-30 05:08:50 --> File loaded: /Applications/MAMP/htdocs/retreatcenterx/application/views/templates/footer.php
+INFO - 2023-09-30 05:08:50 --> Final output sent to browser
+DEBUG - 2023-09-30 05:08:50 --> Total execution time: 0.3588
