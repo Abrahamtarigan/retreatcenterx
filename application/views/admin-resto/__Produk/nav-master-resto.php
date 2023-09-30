@@ -50,28 +50,24 @@
         listKat();
 
         // list all user in datatable
-        function listKat() {
-            $.ajax({
-                type: 'ajax',
-                url: '<?php echo base_url('Produkresto/getKategori'); ?>',
-                async: false,
-                dataType: 'json',
-                success: function(data) {
-                    var html = '';
-                    var i;
-                    var no = 1;
-                    for (i = 0; i < data.length; i++) {
-                        html +=
-
-                            '<p class="badge badge-warning">' + data[i].nama_kategori + '</p>&nbsp;'
-
-                        ;
-                    }
-                    $('#listkat').html(html);
-                }
-
-            });
+       function listKat() {
+    $.ajax({
+        method: 'GET',
+        url: '<?php echo base_url('Produkresto/getKategori'); ?>',
+        dataType: 'json',
+        success: function(data) {
+            var html = '';
+            for (var i = 0; i < data.length; i++) {
+                html += '<p class="badge badge-warning">' + data[i].nama_kategori + '</p>&nbsp;';
+            }
+            $('#listkat').html(html);
+        },
+        error: function(xhr, status, error) {
+            console.error('AJAX request error:', error);
         }
+    });
+}
+
         document.getElementById('addRestoKategori').addEventListener('submit', function(event) {
             event.preventDefault(); // Mencegah form dikirim secara normal
 
@@ -85,7 +81,7 @@
             // Mengirim permintaan Ajax ke controller untuk menambahkan data
             $.ajax({
                 url: '<?php echo base_url("Produkresto/tambah_kategori/"); ?>',
-                type: 'POST',
+                method: 'POST',
                 data: formData,
                 contentType: false,
                 processData: false,
