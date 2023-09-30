@@ -111,7 +111,7 @@ class Auth extends CI_Controller
                 // $data['tags'] = $this->Produk_Model->getTagsById(decrypt_url($roomId));
                 // echo $data['bookingStDt'];
                 $this->load->view('templates/header', $data);
-                $this->load->view('auth/produk', $data, $_SESSION);
+                $this->load->view('auth/Produk', $data, $_SESSION);
                 $this->load->view('templates/footer', $data);
             } else {
                 redirect('');
