@@ -3,7 +3,7 @@
 
 <head>
   <!-- Title -->
-  <title>Retreat Center, Suka Makmur</title>
+  <title>Retreats Center, Suka Makmur</title>
 
   <!-- Required Meta Tags Always Come First -->
   <meta charset="utf-8">
